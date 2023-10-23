@@ -9,20 +9,24 @@ type FormData = {
 
 const questions = [
   {
+    id: 1,
     question: "Describe the Mission, Vision, and Values",
     description:
       "Mission statement defines the purpose, vision statement outlines the ideal future, and values statement highlights the guiding principles of an organization.",
   },
   {
+    id: 2,
     question: "Describe the main products and services of the organisation",
     description: "List the main products and key services of the organisation.",
   },
   {
+    id: 3,
     question: "Describe the employee profile",
     description:
       "List the various job type of employees in the organisation, how many are there, and demographic details such as age range.",
   },
   {
+    id: 4,
     question:
       "Describe the key equipment, facilities, or technologies used to deliver your products and services ",
     description:
@@ -66,8 +70,10 @@ const sectionOne = (props: Props) => {
                         question.question
                       }`}
                       description={question.description}
-                      value={formData[index] ?? ""}
-                      onInputChange={(value) => handleInputChange(index, value)}
+                      value={formData[question.id] ?? ""}
+                      onInputChange={(value) =>
+                        handleInputChange(question.id, value)
+                      }
                     />
                   ))}
                 </div>
