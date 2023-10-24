@@ -7,6 +7,7 @@ import {
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/router";
 import { HomeIcon } from "lucide-react";
+import Image from "next/image";
 
 type SidebarProps = {
   sidebarOpen: boolean;
@@ -149,10 +150,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 {/* Sidebar component, swap this element with another sidebar if you like */}
                 <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-indigo-600 px-6 pb-4">
                   <div className="flex h-16 shrink-0 items-center">
-                    <img
+                    <Image
                       className="h-8 w-auto"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=white"
+                      src="/imcsLogo.png"
                       alt="Your Company"
+                      width={36}
+                      height={36}
                     />
                   </div>
                   <nav className="flex flex-1 flex-col">
