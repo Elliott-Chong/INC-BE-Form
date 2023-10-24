@@ -5,6 +5,8 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { cn } from "@/lib/utils";
+import { useRouter } from "next/router";
+import { HomeIcon } from "lucide-react";
 
 type SidebarProps = {
   sidebarOpen: boolean;
@@ -12,10 +14,37 @@ type SidebarProps = {
 };
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
+
+  const router = useRouter();
+
   const navigation = [
-    { name: "BE LITE FIRST PAGE", href: "#", current: true },
-    { name: "PART 1: Organisational Profile", href: "#", current: true },
+    { name: "Home", icon: HomeIcon, href: "/", current: router.pathname === "/" },
   ];
+
+  const part1 = [
+    {
+      id: 1,
+      name: "Section 1: Organisational Environment",
+      href: "#",
+      initial: "1",
+      current: false,
+    },
+    {
+      id: 2,
+      name: "Section 2: Organisational Relationships",
+      href: "#",
+      initial: "2",
+      current: false,
+    },
+    {
+      id: 3,
+      name: "Section 3: Organisational Challenges",
+      href: "#",
+      initial: "3",
+      current: false,
+    }
+  ];
+
   const part2 = [
     {
       id: 1,
@@ -65,7 +94,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
       href: "#",
       initial: "3",
       current: false,
-    },
+    }
   ];
   return (
     <div>
@@ -148,6 +177,32 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         </ul>
                       </li>
                       <li>
+                      <div className="text-l font-semibold leading-6 text-indigo-200">
+                      PART 1: Organisational Profile
+                        </div>
+                      </li>
+                      <ul role="list" className="-mx-2 mt-2 space-y-1">
+                          {part1.map((part) => (
+                            <li key={part.name}>
+                              <a
+                                href={part.href}
+                                className={cn(
+                                  part.current
+                                    ? "bg-indigo-700 text-white"
+                                    : "text-indigo-200 hover:bg-indigo-700 hover:text-white",
+                                  "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6",
+                                )}
+                              >
+                                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-indigo-400 bg-indigo-500 text-[0.625rem] font-medium text-white">
+                                  {part.initial}
+                                </span>
+                                <span className="truncate">{part.name}</span>
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      <li>
+                    
                         <div className="text-l font-semibold leading-6 text-indigo-200">
                           PART 2: Organisational System Assessment
                         </div>
