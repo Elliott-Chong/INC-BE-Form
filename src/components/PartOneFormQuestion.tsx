@@ -45,15 +45,18 @@ const PartOneFormQuestion = (props: Props) => {
       <div className="col-span-full">
         <label
           htmlFor="about"
-          className="flex w-full text-sm font-medium leading-6 text-gray-900"
+          className="flex w-full space-x-2 text-sm font-medium leading-6 text-gray-900"
         >
-          <span className="w-[95%]">{question}</span>
-          <span className="grow"></span>
+          <span>{question}</span>
           <span>
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <HelpCircle size={16} className="mt-1" />
+                  <HelpCircle
+                    size={16}
+                    className="mt-1 hover:cursor-pointer"
+                    color="#94A3B8"
+                  />
                 </TooltipTrigger>
                 <TooltipContent className="max-w-xs">
                   <p className="whitespace-normal break-words">{tooltip}</p>
