@@ -6,7 +6,6 @@ import {
   ChevronDownIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/20/solid";
-import BEInput from "@/components/BEInput";
 import { cn } from "@/lib/utils";
 
 const userNavigation = [
