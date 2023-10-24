@@ -1,17 +1,11 @@
 import React from "react";
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import {
-  CalendarIcon,
-  ChartPieIcon,
-  Cog6ToothIcon,
-  DocumentDuplicateIcon,
-  FolderIcon,
-  HomeIcon,
-  UsersIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 import { cn } from "@/lib/utils";
+import { useRouter } from "next/router";
+import { HomeIcon } from "lucide-react";
+import Image from "next/image";
 
 type SidebarProps = {
   sidebarOpen: boolean;
@@ -19,29 +13,91 @@ type SidebarProps = {
 };
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
+  const router = useRouter();
+
   const navigation = [
     {
-      name: "BEForm-SectionOne",
-      href: "/BEForm/sectionOne",
+      name: "Home",
       icon: HomeIcon,
-      current: true,
+      href: "/",
+      current: router.pathname === "/",
     },
-    { name: "Team", href: "#", icon: UsersIcon, current: false },
-    { name: "Projects", href: "#", icon: FolderIcon, current: false },
-    { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
+  ];
+
+  const part1 = [
     {
-      name: "Documents",
+      id: 1,
+      name: "Section 1: Organisational Environment",
       href: "#",
-      icon: DocumentDuplicateIcon,
+      initial: "1",
       current: false,
     },
-    { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
-    { name: "INC Section", href: "#", icon: ChartPieIcon, current: false },
+    {
+      id: 2,
+      name: "Section 2: Organisational Relationships",
+      href: "#",
+      initial: "2",
+      current: false,
+    },
+    {
+      id: 3,
+      name: "Section 3: Organisational Challenges",
+      href: "#",
+      initial: "3",
+      current: false,
+    },
   ];
-  const teams = [
-    { id: 1, name: "Heroicons", href: "#", initial: "H", current: false },
-    { id: 2, name: "Tailwind Labs", href: "#", initial: "T", current: false },
-    { id: 3, name: "Workcation", href: "#", initial: "W", current: false },
+
+  const part2 = [
+    {
+      id: 1,
+      name: "Section 1: Leadership",
+      href: "#",
+      initial: "1",
+      current: false,
+    },
+    {
+      id: 2,
+      name: "Section 2: Customers",
+      href: "#",
+      initial: "2",
+      current: false,
+    },
+    {
+      id: 3,
+      name: "Section 3: Strategy",
+      href: "#",
+      initial: "3",
+      current: false,
+    },
+    {
+      id: 4,
+      name: "Section 4: People",
+      href: "#",
+      initial: "1",
+      current: false,
+    },
+    {
+      id: 5,
+      name: "Section 5: Processes",
+      href: "#",
+      initial: "2",
+      current: false,
+    },
+    {
+      id: 6,
+      name: "Section 6: Knowledge",
+      href: "#",
+      initial: "3",
+      current: false,
+    },
+    {
+      id: 7,
+      name: "Section 7: Performance Indicators",
+      href: "#",
+      initial: "3",
+      current: false,
+    },
   ];
   return (
     <div>
@@ -96,10 +152,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 {/* Sidebar component, swap this element with another sidebar if you like */}
                 <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-indigo-600 px-6 pb-4">
                   <div className="flex h-16 shrink-0 items-center">
-                    <img
+                    <Image
                       className="h-8 w-auto"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=white"
+                      src="/imcsLogo.png"
                       alt="Your Company"
+                      width={36}
+                      height={36}
                     />
                   </div>
                   <nav className="flex flex-1 flex-col">
@@ -117,15 +175,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                                   "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6",
                                 )}
                               >
-                                <item.icon
-                                  className={cn(
-                                    item.current
-                                      ? "text-white"
-                                      : "text-indigo-200 group-hover:text-white",
-                                    "h-6 w-6 shrink-0",
-                                  )}
-                                  aria-hidden="true"
-                                />
                                 {item.name}
                               </a>
                             </li>
@@ -133,41 +182,54 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         </ul>
                       </li>
                       <li>
-                        <div className="text-xs font-semibold leading-6 text-indigo-200">
-                          Your teams
+                        <div className="text-l font-semibold leading-6 text-indigo-200">
+                          PART 1: Organisational Profile
+                        </div>
+                      </li>
+                      <ul role="list" className="-mx-2 mt-2 space-y-1">
+                        {part1.map((part) => (
+                          <li key={part.name}>
+                            <a
+                              href={part.href}
+                              className={cn(
+                                part.current
+                                  ? "bg-indigo-700 text-white"
+                                  : "text-indigo-200 hover:bg-indigo-700 hover:text-white",
+                                "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6",
+                              )}
+                            >
+                              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-indigo-400 bg-indigo-500 text-[0.625rem] font-medium text-white">
+                                {part.initial}
+                              </span>
+                              <span className="truncate">{part.name}</span>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                      <li>
+                        <div className="text-l font-semibold leading-6 text-indigo-200">
+                          PART 2: Organisational System Assessment
                         </div>
                         <ul role="list" className="-mx-2 mt-2 space-y-1">
-                          {teams.map((team) => (
-                            <li key={team.name}>
+                          {part2.map((part) => (
+                            <li key={part.name}>
                               <a
-                                href={team.href}
+                                href={part.href}
                                 className={cn(
-                                  team.current
+                                  part.current
                                     ? "bg-indigo-700 text-white"
                                     : "text-indigo-200 hover:bg-indigo-700 hover:text-white",
                                   "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6",
                                 )}
                               >
                                 <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-indigo-400 bg-indigo-500 text-[0.625rem] font-medium text-white">
-                                  {team.initial}
+                                  {part.initial}
                                 </span>
-                                <span className="truncate">{team.name}</span>
+                                <span className="truncate">{part.name}</span>
                               </a>
                             </li>
                           ))}
                         </ul>
-                      </li>
-                      <li className="mt-auto">
-                        <a
-                          href="#"
-                          className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-indigo-200 hover:bg-indigo-700 hover:text-white"
-                        >
-                          <Cog6ToothIcon
-                            className="h-6 w-6 shrink-0 text-indigo-200 group-hover:text-white"
-                            aria-hidden="true"
-                          />
-                          Settings
-                        </a>
                       </li>
                     </ul>
                   </nav>
