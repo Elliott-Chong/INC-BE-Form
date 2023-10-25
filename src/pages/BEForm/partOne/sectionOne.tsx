@@ -1,4 +1,4 @@
-import PartOneFormQuestion from "@/components/PartOneFormQuestion";
+import PartOneFormQuestion from "@/components/BEForm/PartOneFormQuestion";
 import React, { useState } from "react";
 
 type Props = {};
