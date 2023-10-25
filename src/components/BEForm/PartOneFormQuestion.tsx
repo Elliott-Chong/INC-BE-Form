@@ -2,7 +2,7 @@ import React from "react";
 
 import TooltipForQuestion from "./Tooltip";
 import AddActivitiesButton from "./AddActivitiesButton";
-
+import HistoryButton from "./HistoryButton";
 type Props = {
   question: string;
   description: string;
@@ -45,6 +45,7 @@ const PartOneFormQuestion = (props: Props) => {
           <div className="grow"></div>
           <div>
             <AddActivitiesButton />
+            <HistoryButton />
           </div>
         </div>
       </div>
