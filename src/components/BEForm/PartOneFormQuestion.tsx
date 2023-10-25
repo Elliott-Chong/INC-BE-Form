@@ -2,6 +2,7 @@ import React from "react";
 
 import TooltipForQuestion from "./Tooltip";
 import AddActivitiesButton from "./AddActivitiesDropDown";
+import HistoryButton from "./HistoryButton";
 
 type Props = {
   question: string;
