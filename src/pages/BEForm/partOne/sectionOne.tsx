@@ -42,7 +42,7 @@ const questions = [
   },
 ];
 
-const sectionOne = (props: Props) => {
+const partOneSectionOne = (props: Props) => {
   const [formData, setFormData] = useState<FormData>({});
 
   const handleInputChange = (key: number, value: string) => {
@@ -96,4 +96,4 @@ const sectionOne = (props: Props) => {
   );
 };
 
-export default sectionOne;
+export default partOneSectionOne;

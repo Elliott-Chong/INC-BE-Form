@@ -10,46 +10,22 @@ type FormData = {
 
 const questions = [
   {
-    id: 5,
-    question: "Outline the Organisational Chart/Structure",
-    description: "Insert the organisational chart here",
-    tooltip:
-      "Insert the organisational chart here (include group structure if applicable).",
+    id: 10,
+    question: "Describe the key challenges in the competitive environment",
+    description: "List the key challenges faced by the organisation.",
+    tooltip: "List the key challenges faced by the organisation.",
   },
   {
-    id: 6,
-    question: "State the major markets and the principal customer types",
-    description: "List the major markets",
-    tooltip:
-      "List the major markets (e.g. local, regional and international) and the principal customer types (e.g. consumers, other business and government)",
-  },
-  {
-    id: 7,
+    id: 11,
     question:
-      "Describe the customers’ key requirements for the products and services",
-    description:
-      "List the key requirements that the customers have for the products and services.",
+      "Describe the organisation’s position, compared to its competitors",
+    description: "List and rank competitors in the industry.",
     tooltip:
-      "List the key requirements that the customers have for the products and services. Highlight significant differences, if any, in requirements among customer groups or markets.",
-  },
-  {
-    id: 8,
-    question: "State the number and types of partners and suppliers",
-    description: "List the number and types of partners and suppliers",
-    tooltip:
-      "List the number and types of partners and suppliers (highlight key partners and suppliers).",
-  },
-  {
-    id: 9,
-    question: "Describe the key requirements for suppliers and/or partners",
-    description:
-      "List the requirements/criteria that is used to select partners and suppliers.",
-    tooltip:
-      "List the requirements/criteria that is used to select partners and suppliers. (e.g. Are there certain standards or track records that the partners and suppliers are expected to have?",
+      "List and rank competitors in the industry. Are there many small competitors or are there few but big competitors?",
   },
 ];
 
-const partOneSectionTwo = (props: Props) => {
+const partOneSectionThree = (props: Props) => {
   const [formData, setFormData] = useState<FormData>({});
 
   const handleInputChange = (key: number, value: string) => {
@@ -58,6 +34,7 @@ const partOneSectionTwo = (props: Props) => {
       [key]: value,
     }));
   };
+
   return (
     <>
       <div className="mx-auto max-w-2xl">
@@ -70,9 +47,7 @@ const partOneSectionTwo = (props: Props) => {
           <div className="space-y-12">
             <div className="border-b border-gray-900/10 pb-12">
               <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                <h1 className="col-span-full">
-                  2. Organisational Relationships
-                </h1>
+                <h1 className="col-span-full">3. Organisational Challenges</h1>
                 <div className="col-span-full ml-10 space-y-10">
                   {questions.map((question, index: number) => (
                     <PartOneFormQuestion
@@ -95,8 +70,8 @@ const partOneSectionTwo = (props: Props) => {
 
           {/* Buttons for Back and Next */}
           <BackAndNextButtons
-            nextHref="/BEForm/partOne/sectionThree"
-            backHref="/BEForm/partOne/sectionOne"
+            nextHref=""
+            backHref="/BEForm/partOne/sectionTwo"
           />
         </form>
       </div>
@@ -104,4 +79,4 @@ const partOneSectionTwo = (props: Props) => {
   );
 };
 
-export default partOneSectionTwo;
+export default partOneSectionThree;

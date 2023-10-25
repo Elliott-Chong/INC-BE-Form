@@ -43,8 +43,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
     {
       id: 3,
       name: "Section 3: Organisational Challenges",
-      href: "#",
-      current: false,
+      href: "/BEForm/partOne/sectionThree",
+      current: router.pathname === "/BEForm/partOne/sectionThree",
     },
   ];
 
