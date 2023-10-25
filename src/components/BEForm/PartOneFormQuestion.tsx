@@ -1,7 +1,7 @@
 import React from "react";
 
 import TooltipForQuestion from "./Tooltip";
-import AddActivitiesButton from "./AddActivitiesButton";
+import AddActivitiesButton from "./AddActivitiesDropDown";
 
 type Props = {
   question: string;
