@@ -45,6 +45,7 @@ const PartOneFormQuestion = (props: Props) => {
           <div className="grow"></div>
           <div>
             <AddActivitiesButton />
+            <HistoryButton />
           </div>
         </div>
       </div>
