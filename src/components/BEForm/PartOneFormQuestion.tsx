@@ -4,6 +4,7 @@ import TooltipForQuestion from "./Tooltip";
 import AddActivitiesButton from "./AddActivitiesDropDown";
 import HistoryButton from "./HistoryButton";
 
+import Comment from "./Comment";
 type Props = {
   question: string;
   description: string;
@@ -47,6 +48,7 @@ const PartOneFormQuestion = (props: Props) => {
           <div>
             <AddActivitiesButton />
             <HistoryButton />
+            <Comment />
           </div>
         </div>
       </div>

@@ -10,7 +10,6 @@ import {
 
 const HistoryButton = () => {
   const [showHistoryModal, setShowHistoryModal] = useState(false);
-  const [showTooltip, setShowTooltip] = useState(false);
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
     setShowHistoryModal(true);
