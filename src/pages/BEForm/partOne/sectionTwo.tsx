@@ -62,7 +62,7 @@ const partOneSectionTwo = (props: Props) => {
     <>
       <div className="mx-auto max-w-2xl">
         <div className="mt-10 flex flex-col items-center justify-center">
-          <h1 className="text-xl font-bold tracking-wide">
+          <h1 className="text-2xl font-bold tracking-wide">
             PART 1: ORGANISATIONAL PROFILE
           </h1>
         </div>
@@ -70,7 +70,7 @@ const partOneSectionTwo = (props: Props) => {
           <div className="space-y-12">
             <div className="border-b border-gray-900/10 pb-12">
               <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                <h1 className="col-span-full">
+                <h1 className="col-span-full text-lg">
                   2. Organisational Relationships
                 </h1>
                 <div className="col-span-full ml-10 space-y-10">

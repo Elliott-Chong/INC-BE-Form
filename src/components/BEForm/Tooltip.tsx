@@ -26,7 +26,7 @@ const TooltipForQuestion = (props: Props) => {
             />
           </TooltipTrigger>
           <TooltipContent className="max-w-xs">
-            <p className="whitespace-normal break-words">{tooltip}</p>
+            <p className="whitespace-normal break-words text-lg">{tooltip}</p>
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>

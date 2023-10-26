@@ -25,14 +25,14 @@ const PartOneFormQuestion = (props: Props) => {
       <div className="col-span-full">
         <label
           htmlFor="about"
-          className="flex w-full space-x-2 text-sm font-medium leading-6 text-gray-900"
+          className="flex w-full space-x-2 text-base font-medium leading-6 text-gray-900"
         >
-          <span>{question}</span>
+          <span className="text-lg">{question}</span>
           <span>
             <TooltipForQuestion tooltip={tooltip} />
           </span>
         </label>
-        <p className="mt-3 w-[95%] text-sm leading-6 text-gray-600">
+        <p className="mt-3 w-[95%] text-base leading-6 text-gray-600">
           {description}
         </p>
         <div className="mt-2 flex">

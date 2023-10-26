@@ -64,7 +64,9 @@ const partOneSectionOne = (props: Props) => {
           <div className="space-y-12">
             <div className="border-b border-gray-900/10 pb-12">
               <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                <h1 className="col-span-full">1. Organisational Environment</h1>
+                <h1 className="col-span-full text-lg">
+                  1. Organisational Environment
+                </h1>
                 <div className="col-span-full ml-10 space-y-10">
                   {questions.map((question, index: number) => (
                     <PartOneFormQuestion
