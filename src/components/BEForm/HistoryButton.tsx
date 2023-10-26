@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "../Modal";
-import { UserCircleIcon, ClockIcon } from "@heroicons/react/24/outline";
+import { UserCircle2,Clock } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -22,7 +22,7 @@ const HistoryButton = () => {
   const historyRecord = {
     user: {
       username: "Doraemon",
-      photo: <UserCircleIcon className="h-6 w-6 text-gray-600" />,
+      photo: <UserCircle2 className="h-6 w-6 text-gray-600" />,
     },
     text: "This issa my answer...",
     date: "2023-10-25",
@@ -34,7 +34,7 @@ const HistoryButton = () => {
         <Tooltip>
           <TooltipTrigger>
             <div className="relative inline-block">
-              <ClockIcon className="text-black-600 mt-2 h-5 w-5" />
+              <Clock className="text-black-600 mt-2 h-5 w-5" />
             </div>
           </TooltipTrigger>
           <TooltipContent>

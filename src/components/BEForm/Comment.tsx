@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "../Modal";
-import { UserCircleIcon, ChatBubbleBottomCenterTextIcon } from "@heroicons/react/24/outline";
+import { UserCircle2,MessageSquare } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -22,7 +22,7 @@ const Comment = () => {
 
   const user = {
     username: "Doraemon",
-    photo: <UserCircleIcon className="h-6 w-6 text-gray-600" />,
+    photo: <UserCircle2 className="h-6 w-6 text-gray-600" />,
   };
 
   return (
@@ -31,7 +31,7 @@ const Comment = () => {
         <Tooltip>
           <TooltipTrigger>
             <div className="relative inline-block">
-              <ChatBubbleBottomCenterTextIcon className="mt-2 h-5 w-5" />
+              <MessageSquare className="mt-1 h-5 w-5" />
             </div>
           </TooltipTrigger>
           <TooltipContent>
