@@ -34,7 +34,7 @@ const HistoryButton = () => {
         <Tooltip>
           <TooltipTrigger>
             <div className="relative inline-block">
-              <ClockIcon className="text-black-600 mt-2 h-5 w-5" />
+              <ClockIcon className="text-black-600 mt-2 h-4 w-4" />
             </div>
           </TooltipTrigger>
           <TooltipContent>
@@ -48,7 +48,7 @@ const HistoryButton = () => {
           <h2 className="mb-4 text-xl font-bold">History</h2>
 
           <div className="mb-4 flex items-center space-x-4">
-          <div className="border-b border-t border-gray-200 p-2 w-full">
+            <div className="w-full border-b border-t border-gray-200 p-2">
               {historyRecord.user.photo}
               <div>
                 <span className="text-lg font-semibold">
