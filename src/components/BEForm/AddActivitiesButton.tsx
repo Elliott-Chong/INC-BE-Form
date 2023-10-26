@@ -20,23 +20,24 @@ const AddActivitiesButton = (props: Props) => {
   const [open, setOpen] = React.useState(false);
   return (
     <>
-        <Modal open={open} setOpen={setOpen}>
-          <div className="relative"> 
-            <h1>Start a new activity</h1>
-        <Button className="bottom-0 right-0 "
-          onClick={() => {
-            toast("Event has been created", {
-              action: {
-                label: "Join Activity",
-                onClick: () => console.log("Undo"),
-              },
-            });
-            setOpen(false);
-          }}
-        >
-          Start
-        </Button></div>
-       
+      <Modal open={open} setOpen={setOpen}>
+        <div className="relative">
+          <h1>Start a new activity</h1>
+          <Button
+            className="bottom-0 right-0 "
+            onClick={() => {
+              toast("Event has been created", {
+                action: {
+                  label: "Join Activity",
+                  onClick: () => console.log("Undo"),
+                },
+              });
+              setOpen(false);
+            }}
+          >
+            Start
+          </Button>
+        </div>
       </Modal>
       <DropdownMenu>
         <DropdownMenuTrigger asChild className="hover:cursor-pointer">
