@@ -21,8 +21,7 @@ const TooltipForQuestion = (props: Props) => {
         <Tooltip>
           <TooltipTrigger asChild>
             <HelpCircle
-              size={20}
-              className="mt-[2px] hover:cursor-pointer"
+              className="mt-[2px] h-5 w-5 hover:cursor-pointer"
               color="#94A3B8"
             />
           </TooltipTrigger>

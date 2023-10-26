@@ -95,7 +95,7 @@ const AddActivitiesButton = (props: Props) => {
 
       <DropdownMenu>
         <DropdownMenuTrigger asChild className="hover:cursor-pointer">
-          <PlusCircle size={20} />
+          <PlusCircle className="h-5 w-5" />
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuLabel>Activities</DropdownMenuLabel>
