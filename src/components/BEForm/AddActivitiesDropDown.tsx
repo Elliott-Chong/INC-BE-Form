@@ -13,6 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
+  FileEdit,
   KanbanSquare,
   Link,
   PlusCircle,
@@ -43,12 +44,14 @@ const AddActivitiesButton = (props: Props) => {
   const [openLinksModal, setOpenLinksModal] = useState(false);
 
   const FormSchema = z.object({
+    name: z.string().min(1, "Please enter a valid name"),
     link: z.string().url("Please enter a valid URL"),
   });
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
+      name: "",
       link: "",
     },
   });
@@ -67,6 +70,25 @@ const AddActivitiesButton = (props: Props) => {
             onSubmit={form.handleSubmit(handleSaveLink)}
             className="w-full space-y-6"
           >
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="flex">
+                    <FileEdit className={ACTIVITIES_ICON_STYLE} />
+                    Name
+                  </FormLabel>
+                  <FormControl>
+                    <Input placeholder="Presentation" {...field} />
+                  </FormControl>
+                  <FormDescription>
+                    Enter a relevant Name (e.g., Presentation slides).
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
             <FormField
               control={form.control}
               name="link"
