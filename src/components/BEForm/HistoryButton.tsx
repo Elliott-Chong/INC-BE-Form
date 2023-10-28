@@ -44,33 +44,36 @@ const HistoryButton = () => {
       </div>
 
       <Modal open={showHistoryModal} setOpen={closeHistoryModal}>
-        <div className="p-4">
-          <h2 className="mb-4 text-xl font-bold">History</h2>
+  <div className="p-4">
+    <h2 className="text-xl font-bold p-2">History</h2>
 
-          <div className="mb-4 flex items-center space-x-4">
-          <div className="border-b border-t border-gray-200 p-2 w-full">
-              {historyRecord.user.photo}
-              <div>
-                <span className="text-lg font-semibold">
-                  {historyRecord.user.username}
-                </span>
-                <p className="text-gray-600">{historyRecord.date}</p>
-
-                <p>{historyRecord.text}</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-6 flex justify-end">
-            <button
-              className="rounded-md bg-slate-500 px-4 py-2 text-white hover:bg-slate-600"
-              onClick={closeHistoryModal}
-            >
-              Close
-            </button>
-          </div>
+    <div className="mb-4 shadow-md m-2 p-2">
+      <div className="flex items-center space-x-4">
+        <div>
+          {historyRecord.user.photo}
         </div>
-      </Modal>
+        <div>
+          <span className="text-lg font-semibold">
+            {historyRecord.user.username}
+          </span>
+          
+        </div>
+      </div>
+      <p className="text-gray-600">{historyRecord.date}</p>
+      <p>{historyRecord.text}</p>
+    </div>
+
+    <div className="mt-6 flex justify-end">
+      <button
+        className="rounded-md bg-slate-500 px-4 py-2 text-white hover:bg-slate-600"
+        onClick={closeHistoryModal}
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</Modal>
+
     </TooltipProvider>
   );
 };

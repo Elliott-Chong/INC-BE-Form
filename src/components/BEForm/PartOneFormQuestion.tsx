@@ -1,8 +1,9 @@
 import React from "react";
 
 import TooltipForQuestion from "./Tooltip";
-import AddActivitiesButton from "./AddActivitiesButton";
+import AddActivitiesButton from "./AddActivitiesDropDown";
 import HistoryButton from "./HistoryButton";
+
 import Comment from "./Comment";
 type Props = {
   question: string;
