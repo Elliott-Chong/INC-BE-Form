@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import TooltipForQuestion from "./Tooltip";
 import AddActivitiesButton from "./AddActivitiesDropDown";
@@ -11,12 +11,8 @@ type Props = {
   question: string;
   description: string;
   tooltip: string;
-  formData: FormData;
+  formDataValues: QuestionAnswer | undefined;
   onInputChange: (value: QuestionAnswer) => void;
-};
-
-type FormData = {
-  [key: number]: QuestionAnswer;
 };
 
 interface QuestionAnswer {
@@ -26,10 +22,15 @@ interface QuestionAnswer {
 }
 
 const PartTwoFormQuestion = (props: Props) => {
-  const { question, description, tooltip, formData, onInputChange } = props;
+  const { question, description, formDataValues, tooltip, onInputChange } =
+    props;
 
   const [value, setValue] = React.useState<QuestionAnswer>(
-    {} as QuestionAnswer,
+    formDataValues || {
+      radio: "",
+      strengths: "",
+      areasForImprovement: "",
+    },
   );
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -57,6 +58,10 @@ const PartTwoFormQuestion = (props: Props) => {
     }));
   };
 
+  useEffect(() => {
+    onInputChange(value);
+  }, [value]);
+
   return (
     <>
       <div className="col-span-full">
@@ -75,12 +80,7 @@ const PartTwoFormQuestion = (props: Props) => {
 
         <div className="my-5">
           <Label>Progress</Label>
-          <RadioGroup
-            defaultValue="comfortable"
-            onValueChange={() => {
-              handleRadioChange;
-            }}
-          >
+          <RadioGroup defaultValue="comfortable" onChange={handleRadioChange}>
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="notStarted" id="r1" />
               <Label htmlFor="r1">Not Started</Label>
@@ -127,7 +127,7 @@ const PartTwoFormQuestion = (props: Props) => {
             </div>
           </div>
           <div className="grow"></div>
-          <div className="mt-7">
+          <div className="mt-7 flex flex-col justify-evenly">
             <AddActivitiesButton />
             <HistoryButton />
             <Comment />

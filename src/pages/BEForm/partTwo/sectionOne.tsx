@@ -1,6 +1,6 @@
 import BackAndNextButtons from "@/components/BEForm/BackAndNextButtons";
 import PartTwoFormQuestion from "@/components/BEForm/PartTwoFormQuestion";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 type Props = {};
 
@@ -13,6 +13,14 @@ interface QuestionAnswer {
   strengths: string;
   areasForImprovement: string;
 }
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { convertNumberToAsciiLetters } from "@/lib/utils";
 
 const questions = [
   {
@@ -30,7 +38,7 @@ const questions = [
         and recognition?`,
   },
   {
-    id: 2,
+    id: 13,
     question: `Describe how the leaders develop the culture to support the organisation's
     directions`,
     description: `To address the prompt, assess how senior leaders cultivate an organizational culture that aligns with the company's objectives. Examine their strategies for establishing a shared vision, mission, and values that promote excellence. Evaluate their methods for gauging employee commitment and comprehension of these principles and whether they actively communicate them during performance appraisals, learning initiatives, and recognition programs.`,
@@ -45,7 +53,7 @@ const questions = [
   },
 ];
 
-const partOneSectionOne = (props: Props) => {
+const partTwoSectionOne = (props: Props) => {
   const [formData, setFormData] = useState<FormData>({});
 
   const handleInputChange = (key: number, value: QuestionAnswer) => {
@@ -60,12 +68,16 @@ const partOneSectionOne = (props: Props) => {
     }));
   };
 
+  useEffect(() => {
+    console.log("formData: ", formData);
+  }, [formData]);
+
   return (
     <>
       <div className="mx-auto max-w-2xl">
         <div className="mt-10 flex flex-col items-center justify-center">
           <h1 className="text-xl font-bold tracking-wide">
-            PART 1: ORGANISATIONAL SYSTEM ASSESSMENT
+            PART 2: ORGANISATIONAL SYSTEM ASSESSMENT
           </h1>
         </div>
         <form>
@@ -74,20 +86,32 @@ const partOneSectionOne = (props: Props) => {
               <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <h1 className="col-span-full text-lg">1. Leadership</h1>
                 <div className="col-span-full ml-10 space-y-10">
-                  {questions.map((question, index: number) => (
-                    <PartTwoFormQuestion
-                      key={index}
-                      question={`${String.fromCharCode(97 + index)}. ${
-                        question.question
-                      }`}
-                      description={question.description}
-                      tooltip={question.tooltip}
-                      formData={formData}
-                      onInputChange={(value) =>
-                        handleInputChange(question.id, value)
-                      }
-                    />
-                  ))}
+                  <Accordion type="single" collapsible className="w-full">
+                    {questions.map((question, index: number) => (
+                      <AccordionItem value={index.toString()} key={index}>
+                        <AccordionTrigger className="w-full">
+                          <h1 className="w-[50%] truncate">
+                            {`${convertNumberToAsciiLetters(index)}. ${
+                              question.question
+                            }`}
+                          </h1>
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          <PartTwoFormQuestion
+                            question={`${convertNumberToAsciiLetters(index)}. ${
+                              question.question
+                            }`}
+                            description={question.description}
+                            tooltip={question.tooltip}
+                            formDataValues={formData[question.id]}
+                            onInputChange={(value) =>
+                              handleInputChange(question.id, value)
+                            }
+                          />
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
                 </div>
               </div>
             </div>
@@ -95,7 +119,7 @@ const partOneSectionOne = (props: Props) => {
 
           {/* Buttons for Back and Next */}
           <BackAndNextButtons
-            nextHref="/BEForm/partOne/sectionTwo"
+            nextHref="/BEForm/partTwo/sectionTwo"
             backHref=""
           />
         </form>
@@ -104,4 +128,4 @@ const partOneSectionOne = (props: Props) => {
   );
 };
 
-export default partOneSectionOne;
+export default partTwoSectionOne;
