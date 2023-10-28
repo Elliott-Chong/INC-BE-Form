@@ -1,6 +1,6 @@
 import BackAndNextButtons from "@/components/BEForm/BackAndNextButtons";
 import PartTwoFormQuestion from "@/components/BEForm/PartTwoFormQuestion";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 type Props = {};
 
