@@ -24,32 +24,26 @@ import { convertNumberToAsciiLetters } from "@/lib/utils";
 
 const questions = [
   {
-    id: 14,
-    question: `Describe how the organisation identifies and segments customers based on their different wants and needs `,
-    description: `Describe the methods used to categorize customers based on their preferences and needs, highlighting the use of market research and data analysis for effective segmentation.`,
-    tooltip: `Questions to Consider:  • Does the organisation conduct business and market analyses to understand customer requirements? • Does the organisation use appropriate listening channels (such as focus groups, interviews, competitive comparisons, social media, etc.) to understand its different customer segments? `,
+    id: 18,
+    question: `Describe how the organisation identifies organisational challenges, opportunities and risks`,
+    description: `Explain the methods for conducting comprehensive assessments, including SWOT analysis and market research, to identify opportunities for growth and development while mitigating potential risks and challenges.`,
+    tooltip: `Questions to Consider:  • Does the organisation conduct a thorough scan of the external environment (e.g. customer feedback, market intelligence, industry trends)? • Does the organisation consider internal capabilities (e.g. data on operational performance, quality indicators)? • Does the organisation consider the inputs from stakeholders?`,
   },
   {
-    id: 15,
-    question: `Describe how the organisation uses information on current and future customer wants and needs for planning and decision making `,
-    description: `Explain how customer data is integrated into planning and decision-making processes, emphasizing the alignment of products and strategies with evolving customer preferences and market trends.`,
-    tooltip: `Questions to Consider:  • Does the organisation translate the market and customer information, especially new requirements into the strategic plans? `,
+    id: 19,
+    question: `Describe how the organisation develops long and short-term strategies to achieve organisational goals`,
+    description: `Describe the organization's approach to formulating strategies based on market analysis and customer demands, emphasizing the alignment of goals, resource allocation, and clear milestones for effective execution and goal achievement.`,
+    tooltip: `Questions to Consider:  • Does the strategy development process produce an overall business plans which goes beyond a financial or budget plan? • Does the organisation set stretch goals that are based on competitive analysis, process improvements or customer requirements? `,
   },
   {
-    id: 16,
-    question: `Describe how the organisation analyses customer feedback to drive improvements`,
-    description: `Discuss the systematic review of customer feedback and its integration into quality improvement initiatives and service enhancements, ensuring continuous customer-driven satisfaction.`,
-    tooltip: `Questions to Consider:  • Does the organisation understand and take steps to address the root causes of issues relating to negative feedback? • Does the organisation identify what drives positive experiences? `,
-  },
-  {
-    id: 17,
-    question: `Describe how the organisation measures and improves customer satisfaction to provide value`,
-    description: `Describe the methodologies used to measure customer satisfaction, highlighting the use of metrics and strategies to improve products, services, and customer support for enhanced customer experience and value delivery.`,
-    tooltip: `Questions to Consider:  • Does the organisation measure customer satisfaction and loyalty? • Does the organisation measure customer satisfaction and loyalty? `,
+    id: 20,
+    question: `Describe how the organisation translates strategies into action plans to achieve organisational goals`,
+    description: `Detail how the organization translates overarching strategies into actionable plans, emphasizing the development of specific, measurable, achievable, relevant, and time-bound (SMART) objectives. Discuss the allocation of resources, assignment of responsibilities, and establishment of clear timelines, ensuring effective execution and alignment with organizational goals.`,
+    tooltip: `Questions to Consider:  • Does the organisation communicate the action plans to all levels, and translate corporate goals into department and individual goals.  • Does the organisation set relevant and well-defined indicators to track the achievement of the plans and goals?`,
   },
 ];
 
-const partTwoSectionTwo = (props: Props) => {
+const partTwoSectionThree = (props: Props) => {
   const [formData, setFormData] = useState<FormData>({});
 
   const handleInputChange = (key: number, value: QuestionAnswer) => {
@@ -76,7 +70,7 @@ const partTwoSectionTwo = (props: Props) => {
           <div className="space-y-12">
             <div className="border-b border-gray-900/10 pb-12">
               <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                <h1 className="col-span-full text-lg">2. Customers</h1>
+                <h1 className="col-span-full text-lg">3. Strategy</h1>
                 <div className="col-span-full ml-10 space-y-10">
                   <Accordion type="single" collapsible className="w-full">
                     {questions.map((question, index: number) => (
@@ -111,8 +105,8 @@ const partTwoSectionTwo = (props: Props) => {
 
           {/* Buttons for Back and Next */}
           <BackAndNextButtons
-            nextHref="/BEForm/partTwo/sectionThree"
-            backHref="/BEForm/partTwo/sectionOne"
+            nextHref="/BEForm/partTwo/sectionFour"
+            backHref="/BEForm/partTwo/sectionTwo"
           />
         </form>
       </div>
@@ -120,4 +114,4 @@ const partTwoSectionTwo = (props: Props) => {
   );
 };
 
-export default partTwoSectionTwo;
+export default partTwoSectionThree;

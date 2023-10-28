@@ -68,10 +68,6 @@ const partTwoSectionOne = (props: Props) => {
     }));
   };
 
-  useEffect(() => {
-    console.log("formData: ", formData);
-  }, [formData]);
-
   return (
     <>
       <div className="mx-auto max-w-2xl">

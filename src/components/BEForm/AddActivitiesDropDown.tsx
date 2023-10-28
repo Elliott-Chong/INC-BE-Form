@@ -57,7 +57,6 @@ const AddActivitiesButton = (props: Props) => {
   });
 
   const handleSaveLink = (data: z.infer<typeof FormSchema>) => {
-    console.log(data);
     form.reset();
     setOpenLinksModal(false);
   };
