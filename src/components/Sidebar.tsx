@@ -74,24 +74,18 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
     {
       id: 4,
       name: "Section 4: People",
-      href: "#",
-      current: false,
+      href: "/BEForm/partTwo/sectionFour",
+      current: router.pathname === "/BEForm/partTwo/sectionFour",
     },
     {
       id: 5,
       name: "Section 5: Processes",
-      href: "#",
-      current: false,
+      href: "/BEForm/partTwo/sectionFive",
+      current: router.pathname === "/BEForm/partTwo/sectionFive",
     },
     {
       id: 6,
       name: "Section 6: Knowledge",
-      href: "#",
-      current: false,
-    },
-    {
-      id: 7,
-      name: "Section 7: Performance Indicators",
       href: "#",
       current: false,
     },
