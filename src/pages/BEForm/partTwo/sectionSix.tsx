@@ -24,20 +24,14 @@ import { convertNumberToAsciiLetters } from "@/lib/utils";
 
 const questions = [
   {
-    id: 26,
-    question: `Describe how the organisation defines and evaluates key and support business processes`,
-    description: `Explain how the organization defines key and support business processes, emphasizing the documentation and mapping of these processes to ensure clarity and efficiency. Discuss the establishment of performance metrics and regular evaluations to measure the effectiveness and identify areas for improvement within these processes, fostering a culture of continuous optimization and operational excellence.`,
-    tooltip: `Questions to Consider:  • Does the organisation’s key processes have clear objectives and targets (e.g. cycle time, quality level, cost) which are linked to organisational goals? • Does the organisation regularly review its key processes to ensure that they meet the performance standards or targets?`,
-  },
-  {
-    id: 27,
-    question: `Describe how the organisation identifies key suppliers and partners to achieve organisational goals`,
-    description: `Describe the organization's recruitment and selection process, emphasizing the alignment of hiring practices with organizational requirements and goals. Discuss the use of targeted job descriptions, comprehensive candidate evaluation methods, and streamlined selection processes to ensure the acquisition of skilled and suitable personnel who can contribute to the organization's success and growth.`,
-    tooltip: `Questions to Consider:  • Does the organisation proactively ensure that suppliers have the capability and capacity to meet its requirements (e.g. supplier, audits, supplier rating and certification system)?`,
+    id: 28,
+    question: `Describe how the organisation identifies, collects, and uses information to support planning and decision-making`,
+    description: `Explain how the organization identifies, collects, and utilizes information to support its planning and decision-making processes, emphasizing the use of data analytics, market research, and relevant industry insights. Discuss the integration of this information into strategic planning, resource allocation, and performance evaluation, ensuring informed and effective decision-making that aligns with the organization's goals and objectives.`,
+    tooltip: `Questions to Consider:  • Does the organisation have an effective approach for collecting and managing information (e.g. business development and financial growth) for strategy development and performance improvement? • Does the organisation have systems to capture information and knowledge, which can then be shared with stakeholders as well as used for organisational learning and value creation?`,
   },
 ];
 
-const partTwoSectionFive = (props: Props) => {
+const partTwoSectionSix = (props: Props) => {
   const [formData, setFormData] = useState<FormData>({});
 
   const handleInputChange = (key: number, value: QuestionAnswer) => {
@@ -64,7 +58,7 @@ const partTwoSectionFive = (props: Props) => {
           <div className="space-y-12">
             <div className="border-b border-gray-900/10 pb-12">
               <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                <h1 className="col-span-full text-lg">5. Processes</h1>
+                <h1 className="col-span-full text-lg">6. Knowledge</h1>
                 <div className="col-span-full ml-10 space-y-10">
                   <Accordion type="single" collapsible className="w-full">
                     {questions.map((question, index: number) => (
@@ -99,8 +93,8 @@ const partTwoSectionFive = (props: Props) => {
 
           {/* Buttons for Back and Next */}
           <BackAndNextButtons
-            nextHref="/BEForm/partTwo/sectionSix"
-            backHref="/BEForm/partTwo/sectionFour"
+            nextHref=""
+            backHref="/BEForm/partTwo/sectionFive"
           />
         </form>
       </div>
@@ -108,4 +102,4 @@ const partTwoSectionFive = (props: Props) => {
   );
 };
 
-export default partTwoSectionFive;
+export default partTwoSectionSix;
