@@ -86,7 +86,7 @@ const partTwoSectionOne = (props: Props) => {
                     {questions.map((question, index: number) => (
                       <AccordionItem value={index.toString()} key={index}>
                         <AccordionTrigger className="w-full">
-                          <h1 className="w-[50%] truncate">
+                          <h1 className="flex w-[50%] justify-start truncate">
                             {`${convertNumberToAsciiLetters(index)}. ${
                               question.question
                             }`}

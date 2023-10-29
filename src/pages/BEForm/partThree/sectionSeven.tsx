@@ -1,6 +1,5 @@
 import BackAndNextButtons from "@/components/BEForm/BackAndNextButtons";
-import PartTwoFormQuestion from "@/components/BEForm/PartTwoFormQuestion";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 type Props = {};
 
@@ -10,8 +9,8 @@ type FormData = {
 
 interface QuestionAnswer {
   radio: string;
-  strengths: string;
-  areasForImprovement: string;
+  currentKeyIndicators: string;
+  recommendedIndicators: string;
 }
 
 import {
@@ -21,23 +20,36 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { convertNumberToAsciiLetters } from "@/lib/utils";
+import PartThreeFormQuestion from "@/components/BEForm/PartThreeFromQuestion";
 
 const questions = [
   {
-    id: 26,
-    question: `Describe how the organisation defines and evaluates key and support business processes`,
-    description: `Explain how the organization defines key and support business processes, emphasizing the documentation and mapping of these processes to ensure clarity and efficiency. Discuss the establishment of performance metrics and regular evaluations to measure the effectiveness and identify areas for improvement within these processes, fostering a culture of continuous optimization and operational excellence.`,
-    tooltip: `Questions to Consider:  • Does the organisation’s key processes have clear objectives and targets (e.g. cycle time, quality level, cost) which are linked to organisational goals? • Does the organisation regularly review its key processes to ensure that they meet the performance standards or targets?`,
+    id: 29,
+    question: `Customer Indicators`,
+    description: ``,
+    tooltip: `Suggestions can include: - Customer satisfaction, loyalty and overall experience - Customer feedback  - Customer’s overall assessment of product/services - Net Promoter Score/Mystery Audit results`,
   },
   {
-    id: 27,
-    question: `Describe how the organisation identifies key suppliers and partners to achieve organisational goals`,
-    description: `Describe the organization's recruitment and selection process, emphasizing the alignment of hiring practices with organizational requirements and goals. Discuss the use of targeted job descriptions, comprehensive candidate evaluation methods, and streamlined selection processes to ensure the acquisition of skilled and suitable personnel who can contribute to the organization's success and growth.`,
-    tooltip: `Questions to Consider:  • Does the organisation proactively ensure that suppliers have the capability and capacity to meet its requirements (e.g. supplier, audits, supplier rating and certification system)?`,
+    id: 30,
+    question: `Financial Indicators`,
+    description: ``,
+    tooltip: `Suggestions can include: - Revenue growth - Profitability - Liquidity - Debt-to-equity ratio - Return on investment - Asset utilisation - Market share`,
+  },
+  {
+    id: 31,
+    question: `People Indicators`,
+    description: ``,
+    tooltip: `Suggestions can include: - Recruitment programme (e.g. cost per hire, revenue per employee) - Engagement levels - Training and development expenditure - Talent retention rates - Generic factors such as safety, turnover, and overall satisfaction`,
+  },
+  {
+    id: 31,
+    question: `Operational Indicators`,
+    description: ``,
+    tooltip: `Suggestions can include: - Relevant indicators on productivity, efficiency and inventory management (e.g. delivery performance)  - Specific indicators on process performance`,
   },
 ];
 
-const partTwoSectionFive = (props: Props) => {
+const partThreeSectionSeven = (props: Props) => {
   const [formData, setFormData] = useState<FormData>({});
 
   const handleInputChange = (key: number, value: QuestionAnswer) => {
@@ -46,25 +58,31 @@ const partTwoSectionFive = (props: Props) => {
       [key]: {
         ...prevData[key],
         radio: value.radio,
-        strengths: value.strengths,
-        areasForImprovement: value.areasForImprovement,
+        currentKeyIndicators: value.currentKeyIndicators,
+        recommendedIndicators: value.recommendedIndicators,
       },
     }));
   };
+
+  useEffect(() => {
+    console.log(formData);
+  }, [formData]);
 
   return (
     <>
       <div className="mx-auto max-w-2xl">
         <div className="mt-10 flex flex-col items-center justify-center">
           <h1 className="text-xl font-bold tracking-wide">
-            PART 2: ORGANISATIONAL SYSTEM ASSESSMENT
+            PART 3: ORGANISATIONAL RESULTS
           </h1>
         </div>
         <form>
           <div className="space-y-12">
             <div className="border-b border-gray-900/10 pb-12">
               <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                <h1 className="col-span-full text-lg">5. Processes</h1>
+                <h1 className="col-span-full text-lg">
+                  7. Performance Indicators
+                </h1>
                 <div className="col-span-full ml-10 space-y-10">
                   <Accordion type="single" collapsible className="w-full">
                     {questions.map((question, index: number) => (
@@ -77,7 +95,7 @@ const partTwoSectionFive = (props: Props) => {
                           </h1>
                         </AccordionTrigger>
                         <AccordionContent>
-                          <PartTwoFormQuestion
+                          <PartThreeFormQuestion
                             question={`${convertNumberToAsciiLetters(index)}. ${
                               question.question
                             }`}
@@ -99,8 +117,8 @@ const partTwoSectionFive = (props: Props) => {
 
           {/* Buttons for Back and Next */}
           <BackAndNextButtons
-            nextHref="/BEForm/partTwo/sectionSix"
-            backHref="/BEForm/partTwo/sectionFour"
+            nextHref=""
+            backHref="/BEForm/partTwo/sectionSix"
           />
         </form>
       </div>
@@ -108,4 +126,4 @@ const partTwoSectionFive = (props: Props) => {
   );
 };
 
-export default partTwoSectionFive;
+export default partThreeSectionSeven;
