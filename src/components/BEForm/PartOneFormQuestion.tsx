@@ -17,8 +17,8 @@ type Props = {
 const PartOneFormQuestion = (props: Props) => {
   const { question, description, tooltip, value, onInputChange } = props;
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    onInputChange(event.target.value);
+  const handleInputChange = (text: string) => {
+    onInputChange(text);
   };
 
   return (
@@ -39,7 +39,7 @@ const PartOneFormQuestion = (props: Props) => {
         <div className="mt-2 flex">
           <TextEditor
             value={value}
-            onInputChange={onInputChange}
+            onInputChange={handleInputChange}
             className="w-[95%]"
           />
           <div className="grow"></div>

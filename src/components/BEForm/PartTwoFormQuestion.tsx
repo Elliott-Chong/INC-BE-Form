@@ -7,6 +7,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 import Comment from "./Comment";
 import { Label } from "../ui/label";
+import TextEditor from "./MDEditor";
 type Props = {
   question: string;
   description: string;
@@ -40,21 +41,17 @@ const PartTwoFormQuestion = (props: Props) => {
     }));
   };
 
-  const handleStrengthsChange = (
-    event: React.ChangeEvent<HTMLTextAreaElement>,
-  ) => {
+  const handleStrengthsChange = (text: string) => {
     setValue((prevValue) => ({
       ...prevValue,
-      strengths: event.target.value,
+      strengths: text,
     }));
   };
 
-  const handleAreasForImprovementChange = (
-    event: React.ChangeEvent<HTMLTextAreaElement>,
-  ) => {
+  const handleAreasForImprovementChange = (text: string) => {
     setValue((prevValue) => ({
       ...prevValue,
-      areasForImprovement: event.target.value,
+      areasForImprovement: text,
     }));
   };
 
@@ -105,24 +102,18 @@ const PartTwoFormQuestion = (props: Props) => {
           <div className="flex w-full flex-col">
             <div className="w-full">
               <Label>Strengths</Label>
-              <textarea
-                id="about"
-                name="about"
-                rows={3}
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              <TextEditor
                 value={value.strengths}
-                onChange={handleStrengthsChange}
+                onInputChange={handleStrengthsChange}
+                className="w-[95%]"
               />
             </div>
             <div className="w-full">
               <Label>Areas for improvement</Label>
-              <textarea
-                id="about"
-                name="about"
-                rows={3}
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              <TextEditor
                 value={value.areasForImprovement}
-                onChange={handleAreasForImprovementChange}
+                onInputChange={handleAreasForImprovementChange}
+                className="w-[95%]"
               />
             </div>
           </div>

@@ -94,8 +94,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
     {
       id: 7,
       name: "Section 7: Performance Indicators",
-      href: "#",
-      current: false,
+      href: "/BEForm/partThree/sectionSeven",
+      current: router.pathname === "/BEForm/partThree/sectionSeven",
     },
   ];
   const navigateTo = (path: string) => {

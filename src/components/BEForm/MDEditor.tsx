@@ -16,7 +16,7 @@ type Props = {
 };
 
 const events = {
-  focus: () => console.log("focus"),
+  focus: () => {},
 } as SimpleMdeToCodemirrorEvents;
 
 const TextEditor = (props: Props) => {

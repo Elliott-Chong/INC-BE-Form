@@ -1,5 +1,5 @@
 import BackAndNextButtons from "@/components/BEForm/BackAndNextButtons";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 type Props = {};
 
@@ -63,10 +63,6 @@ const partThreeSectionSeven = (props: Props) => {
       },
     }));
   };
-
-  useEffect(() => {
-    console.log(formData);
-  }, [formData]);
 
   return (
     <>
