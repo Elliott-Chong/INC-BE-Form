@@ -116,7 +116,7 @@ const partTwoSectionOne = (props: Props) => {
           {/* Buttons for Back and Next */}
           <BackAndNextButtons
             nextHref="/BEForm/partTwo/sectionTwo"
-            backHref=""
+            backHref="/BEForm/partOne/sectionThree"
           />
         </form>
       </div>

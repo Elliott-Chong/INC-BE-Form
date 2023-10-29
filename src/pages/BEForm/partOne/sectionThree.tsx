@@ -73,7 +73,7 @@ const partOneSectionThree = (props: Props) => {
 
           {/* Buttons for Back and Next */}
           <BackAndNextButtons
-            nextHref=""
+            nextHref="/BEForm/partTwo/sectionOne"
             backHref="/BEForm/partOne/sectionTwo"
           />
         </form>
