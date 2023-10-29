@@ -88,15 +88,15 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
       name: "Section 6: Knowledge",
       href: "#",
       current: false,
-    }
+    },
   ];
-    const part3 = [
-      {
-        id: 7,
-        name: "Section 7: Performance Indicators",
-        href: "#",
-        current: false,
-      }
+  const part3 = [
+    {
+      id: 7,
+      name: "Section 7: Performance Indicators",
+      href: "#",
+      current: false,
+    },
   ];
   const navigateTo = (path: string) => {
     window.location.href = path;
@@ -297,9 +297,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         </li>
                       </ul>
                     </nav>
-                    <Button onClick={() => navigateTo('/BEForm/allResources')}>
-        View All Resources
-      </Button>
+                    <Button onClick={() => navigateTo("/BEForm/allResources")}>
+                      View All Resources
+                    </Button>
                     <Button onClick={() => setOpen(true)}>
                       View All Activities
                     </Button>
