@@ -77,7 +77,7 @@ const PartTwoFormQuestion = (props: Props) => {
 
         <div className="my-5">
           <Label>Progress</Label>
-          <RadioGroup defaultValue="comfortable" onChange={handleRadioChange}>
+          <RadioGroup defaultValue="notStarted" onChange={handleRadioChange}>
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="notStarted" id="r1" />
               <Label htmlFor="r1">Not Started</Label>
