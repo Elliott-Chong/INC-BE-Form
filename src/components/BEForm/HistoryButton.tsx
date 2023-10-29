@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "../Modal";
-import { UserCircleIcon, ClockIcon } from "@heroicons/react/24/outline";
+import { UserCircle2,Clock } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -10,7 +10,6 @@ import {
 
 const HistoryButton = () => {
   const [showHistoryModal, setShowHistoryModal] = useState(false);
-  const [showTooltip, setShowTooltip] = useState(false);
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
     setShowHistoryModal(true);
@@ -23,7 +22,7 @@ const HistoryButton = () => {
   const historyRecord = {
     user: {
       username: "Doraemon",
-      photo: <UserCircleIcon className="h-6 w-6 text-gray-600" />,
+      photo: <UserCircle2 className="h-6 w-6 text-gray-600" />,
     },
     text: "This issa my answer...",
     date: "2023-10-25",
@@ -35,7 +34,7 @@ const HistoryButton = () => {
         <Tooltip>
           <TooltipTrigger>
             <div className="relative inline-block">
-              <ClockIcon className="text-black-600 mt-2 h-5 w-5" />
+              <Clock className="text-black-600 mt-2 h-5 w-5" />
             </div>
           </TooltipTrigger>
           <TooltipContent>
@@ -45,33 +44,36 @@ const HistoryButton = () => {
       </div>
 
       <Modal open={showHistoryModal} setOpen={closeHistoryModal}>
-        <div className="p-4">
-          <h2 className="mb-4 text-xl font-bold">History</h2>
+  <div className="p-4">
+    <h2 className="text-xl font-bold p-2">History</h2>
 
-          <div className="mb-4 flex items-center space-x-4">
-          <div className="border-b border-t border-gray-200 p-2 w-full">
-              {historyRecord.user.photo}
-              <div>
-                <span className="text-lg font-semibold">
-                  {historyRecord.user.username}
-                </span>
-                <p className="text-gray-600">{historyRecord.date}</p>
-
-                <p>{historyRecord.text}</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-6 flex justify-end">
-            <button
-              className="rounded-md bg-slate-500 px-4 py-2 text-white hover:bg-slate-600"
-              onClick={closeHistoryModal}
-            >
-              Close
-            </button>
-          </div>
+    <div className="mb-4 shadow-md m-2 p-2">
+      <div className="flex items-center space-x-4">
+        <div>
+          {historyRecord.user.photo}
         </div>
-      </Modal>
+        <div>
+          <span className="text-lg font-semibold">
+            {historyRecord.user.username}
+          </span>
+          
+        </div>
+      </div>
+      <p className="text-gray-600">{historyRecord.date}</p>
+      <p>{historyRecord.text}</p>
+    </div>
+
+    <div className="mt-6 flex justify-end">
+      <button
+        className="rounded-md bg-slate-500 px-4 py-2 text-white hover:bg-slate-600"
+        onClick={closeHistoryModal}
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</Modal>
+
     </TooltipProvider>
   );
 };

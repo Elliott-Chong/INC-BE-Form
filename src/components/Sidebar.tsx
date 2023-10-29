@@ -88,14 +88,19 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
       name: "Section 6: Knowledge",
       href: "#",
       current: false,
-    },
-    {
-      id: 7,
-      name: "Section 7: Performance Indicators",
-      href: "#",
-      current: false,
-    },
+    }
   ];
+    const part3 = [
+      {
+        id: 7,
+        name: "Section 7: Performance Indicators",
+        href: "#",
+        current: false,
+      }
+  ];
+  const navigateTo = (path: string) => {
+    window.location.href = path;
+  };
   return (
     <>
       <Modal open={open} setOpen={setOpen}>
@@ -259,8 +264,42 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                             ))}
                           </ul>
                         </li>
+                        <li>
+                          <div className="text-sm font-bold leading-6 tracking-wide text-slate-800">
+                            Part 3: Organisational Results
+                          </div>
+                          <ul role="list" className="-mx-2 mt-2 space-y-1">
+                            {part3.map((part, index) => (
+                              <li key={part.name}>
+                                <a
+                                  href={part.href}
+                                  className={cn(
+                                    part.current
+                                      ? "bg-slate-800 text-white"
+                                      : "text-slate-500 hover:bg-slate-400 hover:text-slate-100",
+                                    "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6",
+                                  )}
+                                >
+                                  <span
+                                    className={
+                                      part.current
+                                        ? "flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-slate-100 bg-slate-200 text-[0.625rem] font-medium text-slate-800"
+                                        : "flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-slate-700 bg-slate-800 text-[0.625rem] font-medium text-white"
+                                    }
+                                  >
+                                    {index + 1}
+                                  </span>
+                                  <span className="truncate">{part.name}</span>
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </li>
                       </ul>
                     </nav>
+                    <Button onClick={() => navigateTo('/BEForm/allResources')}>
+        View All Resources
+      </Button>
                     <Button onClick={() => setOpen(true)}>
                       View All Activities
                     </Button>
