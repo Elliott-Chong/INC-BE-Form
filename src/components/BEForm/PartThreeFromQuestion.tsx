@@ -113,7 +113,7 @@ const PartThreeFormQuestion = (props: Props) => {
             </div>
           </div>
           <div className="grow"></div>
-          <div className="mt-7 flex flex-col justify-evenly">
+          <div className="mt-7 flex flex-col">
             <AddActivitiesButton />
             <HistoryButton />
             <Comment />
