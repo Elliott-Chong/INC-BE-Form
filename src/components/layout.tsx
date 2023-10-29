@@ -7,6 +7,7 @@ import {
   MagnifyingGlassIcon,
 } from "@heroicons/react/20/solid";
 import { cn } from "@/lib/utils";
+import Navbar from "./Navbar";
 
 const userNavigation = [
   { name: "Your profile", href: "#" },
@@ -37,7 +38,8 @@ export default function PageLayout(props: PropsWithChildren) {
               aria-hidden="true"
             />
 
-            <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
+            <Navbar />
+            <div className="flex !hidden flex-1 gap-x-4 self-stretch lg:gap-x-6">
               <form className="relative flex flex-1" action="#" method="GET">
                 <label htmlFor="search-field" className="sr-only">
                   Search
