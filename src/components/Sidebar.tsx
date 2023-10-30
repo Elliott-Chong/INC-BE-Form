@@ -87,7 +87,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
       id: 6,
       name: "Section 6: Knowledge",
       href: "/BEForm/partTwo/sectionSix",
-      current: router.pathname === "/BEForm/partTwo/sectionSix",
+      current: router.pathname === "/BEForm/partTwo/sectionSix"
     },
   ];
   const part3 = [
@@ -95,7 +95,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
       id: 7,
       name: "Section 7: Performance Indicators",
       href: "/BEForm/partThree/sectionSeven",
-      current: router.pathname === "/BEForm/partThree/sectionSeven",
+      current: router.pathname === "/BEForm/partThree/sectionSeven"
     },
   ];
   const navigateTo = (path: string) => {
