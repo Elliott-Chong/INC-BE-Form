@@ -13,6 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
+  FileEdit,
   KanbanSquare,
   Link,
   PlusCircle,
@@ -43,18 +44,19 @@ const AddActivitiesButton = (props: Props) => {
   const [openLinksModal, setOpenLinksModal] = useState(false);
   const [open, setOpen] = React.useState(false);
   const FormSchema = z.object({
+    name: z.string().min(1, "Please enter a valid name"),
     link: z.string().url("Please enter a valid URL"),
   });
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
+      name: "",
       link: "",
     },
   });
 
   const handleSaveLink = (data: z.infer<typeof FormSchema>) => {
-    console.log(data);
     form.reset();
     setOpenLinksModal(false);
   };
@@ -88,6 +90,25 @@ const AddActivitiesButton = (props: Props) => {
           >
             <FormField
               control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="flex">
+                    <FileEdit className={ACTIVITIES_ICON_STYLE} />
+                    Name
+                  </FormLabel>
+                  <FormControl>
+                    <Input placeholder="Presentation" {...field} />
+                  </FormControl>
+                  <FormDescription>
+                    Enter a relevant Name (e.g., Presentation slides).
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
               name="link"
               render={({ field }) => (
                 <FormItem>
@@ -114,7 +135,7 @@ const AddActivitiesButton = (props: Props) => {
 
       <DropdownMenu>
         <DropdownMenuTrigger asChild className="hover:cursor-pointer">
-          <PlusCircle size={16} />
+          <PlusCircle className="h-5 w-5" />
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuLabel>Activities</DropdownMenuLabel>

@@ -1,5 +1,6 @@
 import BackAndNextButtons from "@/components/BEForm/BackAndNextButtons";
 import PartOneFormQuestion from "@/components/BEForm/PartOneFormQuestion";
+import { convertNumberToAsciiLetters } from "@/lib/utils";
 import React, { useState } from "react";
 
 type Props = {};
@@ -69,7 +70,7 @@ const partOneSectionOne = (props: Props) => {
                   {questions.map((question, index: number) => (
                     <PartOneFormQuestion
                       key={index}
-                      question={`${String.fromCharCode(97 + index)}. ${
+                      question={`${convertNumberToAsciiLetters(index)}. ${
                         question.question
                       }`}
                       description={question.description}

@@ -56,46 +56,46 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
     {
       id: 1,
       name: "Section 1: Leadership",
-      href: "#",
-      current: false,
+      href: "/BEForm/partTwo/sectionOne",
+      current: router.pathname === "/BEForm/partTwo/sectionOne",
     },
     {
       id: 2,
       name: "Section 2: Customers",
-      href: "#",
-      current: false,
+      href: "/BEForm/partTwo/sectionTwo",
+      current: router.pathname === "/BEForm/partTwo/sectionTwo",
     },
     {
       id: 3,
       name: "Section 3: Strategy",
-      href: "#",
-      current: false,
+      href: "/BEForm/partTwo/sectionThree",
+      current: router.pathname === "/BEForm/partTwo/sectionThree",
     },
     {
       id: 4,
       name: "Section 4: People",
-      href: "#",
-      current: false,
+      href: "/BEForm/partTwo/sectionFour",
+      current: router.pathname === "/BEForm/partTwo/sectionFour",
     },
     {
       id: 5,
       name: "Section 5: Processes",
-      href: "#",
-      current: false,
+      href: "/BEForm/partTwo/sectionFive",
+      current: router.pathname === "/BEForm/partTwo/sectionFive",
     },
     {
       id: 6,
       name: "Section 6: Knowledge",
-      href: "#",
-      current: false,
+      href: "/BEForm/partTwo/sectionSix",
+      current: router.pathname === "/BEForm/partTwo/sectionSix"
     },
   ];
   const part3 = [
     {
       id: 7,
       name: "Section 7: Performance Indicators",
-      href: "#",
-      current: false,
+      href: "/BEForm/partThree/sectionSeven",
+      current: router.pathname === "/BEForm/partThree/sectionSeven"
     },
   ];
   const navigateTo = (path: string) => {
