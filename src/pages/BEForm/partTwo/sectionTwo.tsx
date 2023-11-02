@@ -25,36 +25,32 @@ import ProgressBar from "@/components/ui/progress-bar";
 
 const questions = [
   {
-    id: 12,
-    question:
-      "Describe how the leaders develop the mission, vision and values to guide the organisation",
-    description: `To answer the given questions, outline the process by which senior leaders formulate and communicate the organization's mission, vision, and values. Analyze their approach to assessing employee engagement with these guiding principles, including their involvement in performance appraisals, learning initiatives, and recognition programs.`,
-    tooltip: `Questions to Consider:
-        • Have the senior leaders developed a clear vision, mission and set of values which drive
-        excellence?
-        • How do the senior leaders evaluate the level of commitment and understanding that the
-        employees have of the mission, vision and values?
-        • Do the senior leaders personally communicate the organisation’s mission, vision and values
-        through their involvement in employees’ performance appraisal, learning and development,
-        and recognition?`,
+    id: 14,
+    question: `Describe how the organisation identifies and segments customers based on their different wants and needs `,
+    description: `Describe the methods used to categorize customers based on their preferences and needs, highlighting the use of market research and data analysis for effective segmentation.`,
+    tooltip: `Questions to Consider:  • Does the organisation conduct business and market analyses to understand customer requirements? • Does the organisation use appropriate listening channels (such as focus groups, interviews, competitive comparisons, social media, etc.) to understand its different customer segments? `,
   },
   {
-    id: 13,
-    question: `Describe how the leaders develop the culture to support the organisation's
-    directions`,
-    description: `To address the prompt, assess how senior leaders cultivate an organizational culture that aligns with the company's objectives. Examine their strategies for establishing a shared vision, mission, and values that promote excellence. Evaluate their methods for gauging employee commitment and comprehension of these principles and whether they actively communicate them during performance appraisals, learning initiatives, and recognition programs.`,
-    tooltip: `Questions to Consider:
-    • Have the senior leaders developed a clear vision, mission and set of values which drive
-    excellence?
-    • How do the senior leaders evaluate the level of commitment and understanding that the
-    employees have of the mission, vision and values?
-    • Do the senior leaders personally communicate the organisation’s mission, vision and values
-    through their involvement in employees’ performance appraisal, learning and development,
-    and recognition?`,
+    id: 15,
+    question: `Describe how the organisation uses information on current and future customer wants and needs for planning and decision making `,
+    description: `Explain how customer data is integrated into planning and decision-making processes, emphasizing the alignment of products and strategies with evolving customer preferences and market trends.`,
+    tooltip: `Questions to Consider:  • Does the organisation translate the market and customer information, especially new requirements into the strategic plans? `,
+  },
+  {
+    id: 16,
+    question: `Describe how the organisation analyses customer feedback to drive improvements`,
+    description: `Discuss the systematic review of customer feedback and its integration into quality improvement initiatives and service enhancements, ensuring continuous customer-driven satisfaction.`,
+    tooltip: `Questions to Consider:  • Does the organisation understand and take steps to address the root causes of issues relating to negative feedback? • Does the organisation identify what drives positive experiences? `,
+  },
+  {
+    id: 17,
+    question: `Describe how the organisation measures and improves customer satisfaction to provide value`,
+    description: `Describe the methodologies used to measure customer satisfaction, highlighting the use of metrics and strategies to improve products, services, and customer support for enhanced customer experience and value delivery.`,
+    tooltip: `Questions to Consider:  • Does the organisation measure customer satisfaction and loyalty? • Does the organisation measure customer satisfaction and loyalty? `,
   },
 ];
 
-const partTwoSectionOne = (props: Props) => {
+const partTwoSectionTwo = (props: Props) => {
   const [formData, setFormData] = useState<FormData>({});
 
   const handleInputChange = (key: number, value: QuestionAnswer) => {
@@ -73,7 +69,7 @@ const partTwoSectionOne = (props: Props) => {
     <>
       <div className="mx-auto max-w-2xl">
       <div className="pb-8">
-        <ProgressBar progress={35}></ProgressBar>
+        <ProgressBar progress={40}></ProgressBar>
       </div>
         <div className="mt-10 flex flex-col items-center justify-center">
           <h1 className="text-xl font-bold tracking-wide">
@@ -84,7 +80,7 @@ const partTwoSectionOne = (props: Props) => {
           <div className="space-y-12">
             <div className="border-b border-gray-900/10 pb-12">
               <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                <h1 className="col-span-full text-lg">1. Leadership</h1>
+                <h1 className="col-span-full text-lg">2. Customers</h1>
                 <div className="col-span-full ml-10 space-y-10">
                   <Accordion type="single" collapsible className="w-full">
                     {questions.map((question, index: number) => (
@@ -119,14 +115,13 @@ const partTwoSectionOne = (props: Props) => {
 
           {/* Buttons for Back and Next */}
           <BackAndNextButtons
-            nextHref="/BEForm/partTwo/sectionTwo"
-            backHref="/BEForm/partOne/sectionThree"
+            nextHref="/BEForm/partTwo/sectionThree"
+            backHref="/BEForm/partTwo/sectionOne"
           />
         </form>
-        
       </div>
     </>
   );
 };
 
-export default partTwoSectionOne;
+export default partTwoSectionTwo;

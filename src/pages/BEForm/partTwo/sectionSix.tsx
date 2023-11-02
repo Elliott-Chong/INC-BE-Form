@@ -25,36 +25,14 @@ import ProgressBar from "@/components/ui/progress-bar";
 
 const questions = [
   {
-    id: 12,
-    question:
-      "Describe how the leaders develop the mission, vision and values to guide the organisation",
-    description: `To answer the given questions, outline the process by which senior leaders formulate and communicate the organization's mission, vision, and values. Analyze their approach to assessing employee engagement with these guiding principles, including their involvement in performance appraisals, learning initiatives, and recognition programs.`,
-    tooltip: `Questions to Consider:
-        • Have the senior leaders developed a clear vision, mission and set of values which drive
-        excellence?
-        • How do the senior leaders evaluate the level of commitment and understanding that the
-        employees have of the mission, vision and values?
-        • Do the senior leaders personally communicate the organisation’s mission, vision and values
-        through their involvement in employees’ performance appraisal, learning and development,
-        and recognition?`,
-  },
-  {
-    id: 13,
-    question: `Describe how the leaders develop the culture to support the organisation's
-    directions`,
-    description: `To address the prompt, assess how senior leaders cultivate an organizational culture that aligns with the company's objectives. Examine their strategies for establishing a shared vision, mission, and values that promote excellence. Evaluate their methods for gauging employee commitment and comprehension of these principles and whether they actively communicate them during performance appraisals, learning initiatives, and recognition programs.`,
-    tooltip: `Questions to Consider:
-    • Have the senior leaders developed a clear vision, mission and set of values which drive
-    excellence?
-    • How do the senior leaders evaluate the level of commitment and understanding that the
-    employees have of the mission, vision and values?
-    • Do the senior leaders personally communicate the organisation’s mission, vision and values
-    through their involvement in employees’ performance appraisal, learning and development,
-    and recognition?`,
+    id: 28,
+    question: `Describe how the organisation identifies, collects, and uses information to support planning and decision-making`,
+    description: `Explain how the organization identifies, collects, and utilizes information to support its planning and decision-making processes, emphasizing the use of data analytics, market research, and relevant industry insights. Discuss the integration of this information into strategic planning, resource allocation, and performance evaluation, ensuring informed and effective decision-making that aligns with the organization's goals and objectives.`,
+    tooltip: `Questions to Consider:  • Does the organisation have an effective approach for collecting and managing information (e.g. business development and financial growth) for strategy development and performance improvement? • Does the organisation have systems to capture information and knowledge, which can then be shared with stakeholders as well as used for organisational learning and value creation?`,
   },
 ];
 
-const partTwoSectionOne = (props: Props) => {
+const partTwoSectionSix = (props: Props) => {
   const [formData, setFormData] = useState<FormData>({});
 
   const handleInputChange = (key: number, value: QuestionAnswer) => {
@@ -73,7 +51,7 @@ const partTwoSectionOne = (props: Props) => {
     <>
       <div className="mx-auto max-w-2xl">
       <div className="pb-8">
-        <ProgressBar progress={35}></ProgressBar>
+        <ProgressBar progress={70}></ProgressBar>
       </div>
         <div className="mt-10 flex flex-col items-center justify-center">
           <h1 className="text-xl font-bold tracking-wide">
@@ -84,7 +62,7 @@ const partTwoSectionOne = (props: Props) => {
           <div className="space-y-12">
             <div className="border-b border-gray-900/10 pb-12">
               <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                <h1 className="col-span-full text-lg">1. Leadership</h1>
+                <h1 className="col-span-full text-lg">6. Knowledge</h1>
                 <div className="col-span-full ml-10 space-y-10">
                   <Accordion type="single" collapsible className="w-full">
                     {questions.map((question, index: number) => (
@@ -119,14 +97,13 @@ const partTwoSectionOne = (props: Props) => {
 
           {/* Buttons for Back and Next */}
           <BackAndNextButtons
-            nextHref="/BEForm/partTwo/sectionTwo"
-            backHref="/BEForm/partOne/sectionThree"
+            nextHref="/BEForm/partThree/sectionSeven"
+            backHref="/BEForm/partTwo/sectionFive"
           />
         </form>
-        
       </div>
     </>
   );
 };
 
-export default partTwoSectionOne;
+export default partTwoSectionSix;

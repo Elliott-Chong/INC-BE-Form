@@ -1,5 +1,7 @@
 import BackAndNextButtons from "@/components/BEForm/BackAndNextButtons";
 import PartOneFormQuestion from "@/components/BEForm/PartOneFormQuestion";
+import ProgressBar from "@/components/ui/progress-bar";
+import { convertNumberToAsciiLetters } from "@/lib/utils";
 import React, { useState } from "react";
 
 type Props = {};
@@ -38,6 +40,9 @@ const partOneSectionThree = (props: Props) => {
   return (
     <>
       <div className="mx-auto max-w-2xl">
+      <div className="pb-8">
+        <ProgressBar progress={30}></ProgressBar>
+      </div>
         <div className="mt-10 flex flex-col items-center justify-center">
           <h1 className="text-xl font-bold tracking-wide">
             PART 1: ORGANISATIONAL PROFILE
@@ -54,7 +59,7 @@ const partOneSectionThree = (props: Props) => {
                   {questions.map((question, index: number) => (
                     <PartOneFormQuestion
                       key={index}
-                      question={`${String.fromCharCode(97 + index)}. ${
+                      question={`${convertNumberToAsciiLetters(index)}. ${
                         question.question
                       }`}
                       description={question.description}
@@ -72,10 +77,11 @@ const partOneSectionThree = (props: Props) => {
 
           {/* Buttons for Back and Next */}
           <BackAndNextButtons
-            nextHref=""
+            nextHref="/BEForm/partTwo/sectionOne"
             backHref="/BEForm/partOne/sectionTwo"
           />
         </form>
+      
       </div>
     </>
   );

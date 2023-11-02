@@ -25,36 +25,26 @@ import ProgressBar from "@/components/ui/progress-bar";
 
 const questions = [
   {
-    id: 12,
-    question:
-      "Describe how the leaders develop the mission, vision and values to guide the organisation",
-    description: `To answer the given questions, outline the process by which senior leaders formulate and communicate the organization's mission, vision, and values. Analyze their approach to assessing employee engagement with these guiding principles, including their involvement in performance appraisals, learning initiatives, and recognition programs.`,
-    tooltip: `Questions to Consider:
-        • Have the senior leaders developed a clear vision, mission and set of values which drive
-        excellence?
-        • How do the senior leaders evaluate the level of commitment and understanding that the
-        employees have of the mission, vision and values?
-        • Do the senior leaders personally communicate the organisation’s mission, vision and values
-        through their involvement in employees’ performance appraisal, learning and development,
-        and recognition?`,
+    id: 18,
+    question: `Describe how the organisation identifies organisational challenges, opportunities and risks`,
+    description: `Explain the methods for conducting comprehensive assessments, including SWOT analysis and market research, to identify opportunities for growth and development while mitigating potential risks and challenges.`,
+    tooltip: `Questions to Consider:  • Does the organisation conduct a thorough scan of the external environment (e.g. customer feedback, market intelligence, industry trends)? • Does the organisation consider internal capabilities (e.g. data on operational performance, quality indicators)? • Does the organisation consider the inputs from stakeholders?`,
   },
   {
-    id: 13,
-    question: `Describe how the leaders develop the culture to support the organisation's
-    directions`,
-    description: `To address the prompt, assess how senior leaders cultivate an organizational culture that aligns with the company's objectives. Examine their strategies for establishing a shared vision, mission, and values that promote excellence. Evaluate their methods for gauging employee commitment and comprehension of these principles and whether they actively communicate them during performance appraisals, learning initiatives, and recognition programs.`,
-    tooltip: `Questions to Consider:
-    • Have the senior leaders developed a clear vision, mission and set of values which drive
-    excellence?
-    • How do the senior leaders evaluate the level of commitment and understanding that the
-    employees have of the mission, vision and values?
-    • Do the senior leaders personally communicate the organisation’s mission, vision and values
-    through their involvement in employees’ performance appraisal, learning and development,
-    and recognition?`,
+    id: 19,
+    question: `Describe how the organisation develops long and short-term strategies to achieve organisational goals`,
+    description: `Describe the organization's approach to formulating strategies based on market analysis and customer demands, emphasizing the alignment of goals, resource allocation, and clear milestones for effective execution and goal achievement.`,
+    tooltip: `Questions to Consider:  • Does the strategy development process produce an overall business plans which goes beyond a financial or budget plan? • Does the organisation set stretch goals that are based on competitive analysis, process improvements or customer requirements? `,
+  },
+  {
+    id: 20,
+    question: `Describe how the organisation translates strategies into action plans to achieve organisational goals`,
+    description: `Detail how the organization translates overarching strategies into actionable plans, emphasizing the development of specific, measurable, achievable, relevant, and time-bound (SMART) objectives. Discuss the allocation of resources, assignment of responsibilities, and establishment of clear timelines, ensuring effective execution and alignment with organizational goals.`,
+    tooltip: `Questions to Consider:  • Does the organisation communicate the action plans to all levels, and translate corporate goals into department and individual goals.  • Does the organisation set relevant and well-defined indicators to track the achievement of the plans and goals?`,
   },
 ];
 
-const partTwoSectionOne = (props: Props) => {
+const partTwoSectionThree = (props: Props) => {
   const [formData, setFormData] = useState<FormData>({});
 
   const handleInputChange = (key: number, value: QuestionAnswer) => {
@@ -73,7 +63,7 @@ const partTwoSectionOne = (props: Props) => {
     <>
       <div className="mx-auto max-w-2xl">
       <div className="pb-8">
-        <ProgressBar progress={35}></ProgressBar>
+        <ProgressBar progress={45}></ProgressBar>
       </div>
         <div className="mt-10 flex flex-col items-center justify-center">
           <h1 className="text-xl font-bold tracking-wide">
@@ -84,7 +74,7 @@ const partTwoSectionOne = (props: Props) => {
           <div className="space-y-12">
             <div className="border-b border-gray-900/10 pb-12">
               <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                <h1 className="col-span-full text-lg">1. Leadership</h1>
+                <h1 className="col-span-full text-lg">3. Strategy</h1>
                 <div className="col-span-full ml-10 space-y-10">
                   <Accordion type="single" collapsible className="w-full">
                     {questions.map((question, index: number) => (
@@ -119,8 +109,8 @@ const partTwoSectionOne = (props: Props) => {
 
           {/* Buttons for Back and Next */}
           <BackAndNextButtons
-            nextHref="/BEForm/partTwo/sectionTwo"
-            backHref="/BEForm/partOne/sectionThree"
+            nextHref="/BEForm/partTwo/sectionFour"
+            backHref="/BEForm/partTwo/sectionTwo"
           />
         </form>
         
@@ -129,4 +119,4 @@ const partTwoSectionOne = (props: Props) => {
   );
 };
 
-export default partTwoSectionOne;
+export default partTwoSectionThree;

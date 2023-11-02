@@ -35,14 +35,14 @@ import { Button } from "../ui/button";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-
+import { toast } from "sonner";
 type Props = {};
 
 const ACTIVITIES_ICON_STYLE = "mr-2 h-4 w-4";
 
 const AddActivitiesButton = (props: Props) => {
   const [openLinksModal, setOpenLinksModal] = useState(false);
-
+  const [open, setOpen] = React.useState(false);
   const FormSchema = z.object({
     name: z.string().min(1, "Please enter a valid name"),
     link: z.string().url("Please enter a valid URL"),
@@ -57,13 +57,32 @@ const AddActivitiesButton = (props: Props) => {
   });
 
   const handleSaveLink = (data: z.infer<typeof FormSchema>) => {
-    console.log(data);
     form.reset();
     setOpenLinksModal(false);
   };
 
   return (
     <>
+          <Modal open={open} setOpen={setOpen}>
+        <div className="relative">
+          <h1 className="text-center text-2xl">Start a new activity</h1>
+          <div className="p-10"><p className="font-semibold">Please press the start to start a new a activity</p></div>
+          <Button
+            className="bottom-0 right-0 "
+            onClick={() => {
+              toast("Event has been created", {
+                action: {
+                  label: "Join Activity",
+                  onClick: () => console.log("Undo"),
+                },
+              });
+              setOpen(false);
+            }}
+          >
+            Start
+          </Button>
+        </div>
+      </Modal>
       <Modal open={openLinksModal} setOpen={setOpenLinksModal}>
         <Form {...form}>
           <form
@@ -131,7 +150,7 @@ const AddActivitiesButton = (props: Props) => {
             </DropdownMenuSubTrigger>
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
-                <DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setOpen(true)}>
                   <PlusCircle className="mr-2 h-4 w-4" />
                   <span>Add Post-It</span>
                 </DropdownMenuItem>
@@ -156,7 +175,7 @@ const AddActivitiesButton = (props: Props) => {
             </DropdownMenuSubTrigger>
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
-                <DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setOpen(true)}>
                   <PlusCircle className="mr-2 h-4 w-4" />
                   <span>Add Kanban</span>
                 </DropdownMenuItem>
@@ -181,7 +200,7 @@ const AddActivitiesButton = (props: Props) => {
             </DropdownMenuSubTrigger>
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
-                <DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setOpen(true)}>
                   <PlusCircle className="mr-2 h-4 w-4" />
                   <span>Add Flowchart</span>
                 </DropdownMenuItem>

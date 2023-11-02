@@ -18,19 +18,19 @@ type Props = {
 
 interface QuestionAnswer {
   radio: string;
-  strengths: string;
-  areasForImprovement: string;
+  currentKeyIndicators: string;
+  recommendedIndicators: string;
 }
 
-const PartTwoFormQuestion = (props: Props) => {
+const PartThreeFormQuestion = (props: Props) => {
   const { question, description, formDataValues, tooltip, onInputChange } =
     props;
 
   const [value, setValue] = React.useState<QuestionAnswer>(
     formDataValues || {
       radio: "",
-      strengths: "",
-      areasForImprovement: "",
+      currentKeyIndicators: "",
+      recommendedIndicators: "",
     },
   );
 
@@ -44,14 +44,14 @@ const PartTwoFormQuestion = (props: Props) => {
   const handleStrengthsChange = (text: string) => {
     setValue((prevValue) => ({
       ...prevValue,
-      strengths: text,
+      currentKeyIndicators: text,
     }));
   };
 
   const handleAreasForImprovementChange = (text: string) => {
     setValue((prevValue) => ({
       ...prevValue,
-      areasForImprovement: text,
+      recommendedIndicators: text,
     }));
   };
 
@@ -76,24 +76,19 @@ const PartTwoFormQuestion = (props: Props) => {
         </p>
 
         <div className="my-5">
-          <Label>Progress</Label>
-          <RadioGroup defaultValue="notStarted" onChange={handleRadioChange}>
+          <Label>Indicators</Label>
+          <RadioGroup defaultValue="noIndicators" onChange={handleRadioChange}>
             <div className="flex items-center space-x-2">
-              <RadioGroupItem value="notStarted" id="r1" />
-              <Label htmlFor="r1">Not Started</Label>
+              <RadioGroupItem value="noIndicators" id="r1" />
+              <Label htmlFor="r1">NO INDICATORS (0)</Label>
             </div>
             <div className="flex items-center space-x-2">
-              <RadioGroupItem value="started" id="r2" />
-              <Label htmlFor="r2">Started</Label>
+              <RadioGroupItem value="fewIndicators" id="r2" />
+              <Label htmlFor="r2">FEW INDICATORS (1)</Label>
             </div>
             <div className="flex items-center space-x-2">
-              <RadioGroupItem value="improved" id="r3" />
-              <Label htmlFor="r3">Improved</Label>
-            </div>
-
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="effective" id="r4" />
-              <Label htmlFor="r4">Effective</Label>
+              <RadioGroupItem value="keyIndicators" id="r3" />
+              <Label htmlFor="r3">KEY INDICATORS (2)</Label>
             </div>
           </RadioGroup>
         </div>
@@ -101,17 +96,17 @@ const PartTwoFormQuestion = (props: Props) => {
         <div className="mt-2 flex space-x-1">
           <div className="flex w-full flex-col">
             <div className="w-full">
-              <Label>Strengths</Label>
+              <Label>Current Key Indicators</Label>
               <TextEditor
-                value={value.strengths}
+                value={value.currentKeyIndicators}
                 onInputChange={handleStrengthsChange}
                 className="w-[95%]"
               />
             </div>
             <div className="w-full">
-              <Label>Areas for improvement</Label>
+              <Label>Recommended Indicators</Label>
               <TextEditor
-                value={value.areasForImprovement}
+                value={value.recommendedIndicators}
                 onInputChange={handleAreasForImprovementChange}
                 className="w-[95%]"
               />
@@ -129,4 +124,4 @@ const PartTwoFormQuestion = (props: Props) => {
   );
 };
 
-export default PartTwoFormQuestion;
+export default PartThreeFormQuestion;

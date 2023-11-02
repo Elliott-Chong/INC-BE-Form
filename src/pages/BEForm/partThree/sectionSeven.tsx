@@ -1,5 +1,4 @@
 import BackAndNextButtons from "@/components/BEForm/BackAndNextButtons";
-import PartTwoFormQuestion from "@/components/BEForm/PartTwoFormQuestion";
 import React, { useState } from "react";
 
 type Props = {};
@@ -10,8 +9,8 @@ type FormData = {
 
 interface QuestionAnswer {
   radio: string;
-  strengths: string;
-  areasForImprovement: string;
+  currentKeyIndicators: string;
+  recommendedIndicators: string;
 }
 
 import {
@@ -21,40 +20,37 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { convertNumberToAsciiLetters } from "@/lib/utils";
+import PartThreeFormQuestion from "@/components/BEForm/PartThreeFromQuestion";
 import ProgressBar from "@/components/ui/progress-bar";
 
 const questions = [
   {
-    id: 12,
-    question:
-      "Describe how the leaders develop the mission, vision and values to guide the organisation",
-    description: `To answer the given questions, outline the process by which senior leaders formulate and communicate the organization's mission, vision, and values. Analyze their approach to assessing employee engagement with these guiding principles, including their involvement in performance appraisals, learning initiatives, and recognition programs.`,
-    tooltip: `Questions to Consider:
-        • Have the senior leaders developed a clear vision, mission and set of values which drive
-        excellence?
-        • How do the senior leaders evaluate the level of commitment and understanding that the
-        employees have of the mission, vision and values?
-        • Do the senior leaders personally communicate the organisation’s mission, vision and values
-        through their involvement in employees’ performance appraisal, learning and development,
-        and recognition?`,
+    id: 29,
+    question: `Customer Indicators`,
+    description: ``,
+    tooltip: `Suggestions can include: - Customer satisfaction, loyalty and overall experience - Customer feedback  - Customer’s overall assessment of product/services - Net Promoter Score/Mystery Audit results`,
   },
   {
-    id: 13,
-    question: `Describe how the leaders develop the culture to support the organisation's
-    directions`,
-    description: `To address the prompt, assess how senior leaders cultivate an organizational culture that aligns with the company's objectives. Examine their strategies for establishing a shared vision, mission, and values that promote excellence. Evaluate their methods for gauging employee commitment and comprehension of these principles and whether they actively communicate them during performance appraisals, learning initiatives, and recognition programs.`,
-    tooltip: `Questions to Consider:
-    • Have the senior leaders developed a clear vision, mission and set of values which drive
-    excellence?
-    • How do the senior leaders evaluate the level of commitment and understanding that the
-    employees have of the mission, vision and values?
-    • Do the senior leaders personally communicate the organisation’s mission, vision and values
-    through their involvement in employees’ performance appraisal, learning and development,
-    and recognition?`,
+    id: 30,
+    question: `Financial Indicators`,
+    description: ``,
+    tooltip: `Suggestions can include: - Revenue growth - Profitability - Liquidity - Debt-to-equity ratio - Return on investment - Asset utilisation - Market share`,
+  },
+  {
+    id: 31,
+    question: `People Indicators`,
+    description: ``,
+    tooltip: `Suggestions can include: - Recruitment programme (e.g. cost per hire, revenue per employee) - Engagement levels - Training and development expenditure - Talent retention rates - Generic factors such as safety, turnover, and overall satisfaction`,
+  },
+  {
+    id: 31,
+    question: `Operational Indicators`,
+    description: ``,
+    tooltip: `Suggestions can include: - Relevant indicators on productivity, efficiency and inventory management (e.g. delivery performance)  - Specific indicators on process performance`,
   },
 ];
 
-const partTwoSectionOne = (props: Props) => {
+const partThreeSectionSeven = (props: Props) => {
   const [formData, setFormData] = useState<FormData>({});
 
   const handleInputChange = (key: number, value: QuestionAnswer) => {
@@ -63,8 +59,8 @@ const partTwoSectionOne = (props: Props) => {
       [key]: {
         ...prevData[key],
         radio: value.radio,
-        strengths: value.strengths,
-        areasForImprovement: value.areasForImprovement,
+        currentKeyIndicators: value.currentKeyIndicators,
+        recommendedIndicators: value.recommendedIndicators,
       },
     }));
   };
@@ -73,18 +69,20 @@ const partTwoSectionOne = (props: Props) => {
     <>
       <div className="mx-auto max-w-2xl">
       <div className="pb-8">
-        <ProgressBar progress={35}></ProgressBar>
+        <ProgressBar progress={90}></ProgressBar>
       </div>
         <div className="mt-10 flex flex-col items-center justify-center">
           <h1 className="text-xl font-bold tracking-wide">
-            PART 2: ORGANISATIONAL SYSTEM ASSESSMENT
+            PART 3: ORGANISATIONAL RESULTS
           </h1>
         </div>
         <form>
           <div className="space-y-12">
             <div className="border-b border-gray-900/10 pb-12">
               <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                <h1 className="col-span-full text-lg">1. Leadership</h1>
+                <h1 className="col-span-full text-lg">
+                  7. Performance Indicators
+                </h1>
                 <div className="col-span-full ml-10 space-y-10">
                   <Accordion type="single" collapsible className="w-full">
                     {questions.map((question, index: number) => (
@@ -97,7 +95,7 @@ const partTwoSectionOne = (props: Props) => {
                           </h1>
                         </AccordionTrigger>
                         <AccordionContent>
-                          <PartTwoFormQuestion
+                          <PartThreeFormQuestion
                             question={`${convertNumberToAsciiLetters(index)}. ${
                               question.question
                             }`}
@@ -119,14 +117,13 @@ const partTwoSectionOne = (props: Props) => {
 
           {/* Buttons for Back and Next */}
           <BackAndNextButtons
-            nextHref="/BEForm/partTwo/sectionTwo"
-            backHref="/BEForm/partOne/sectionThree"
+            nextHref=""
+            backHref="/BEForm/partTwo/sectionSix"
           />
         </form>
-        
       </div>
     </>
   );
 };
 
-export default partTwoSectionOne;
+export default partThreeSectionSeven;
