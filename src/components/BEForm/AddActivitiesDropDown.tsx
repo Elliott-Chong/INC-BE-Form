@@ -65,7 +65,8 @@ const AddActivitiesButton = (props: Props) => {
     <>
           <Modal open={open} setOpen={setOpen}>
         <div className="relative">
-          <h1>Start a new activity</h1>
+          <h1 className="text-center text-2xl">Start a new activity</h1>
+          <div className="p-10"><p className="font-semibold">Please press the start to start a new a activity</p></div>
           <Button
             className="bottom-0 right-0 "
             onClick={() => {

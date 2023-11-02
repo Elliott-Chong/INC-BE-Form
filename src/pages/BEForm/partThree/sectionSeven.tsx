@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/accordion";
 import { convertNumberToAsciiLetters } from "@/lib/utils";
 import PartThreeFormQuestion from "@/components/BEForm/PartThreeFromQuestion";
+import ProgressBar from "@/components/ui/progress-bar";
 
 const questions = [
   {
@@ -67,6 +68,9 @@ const partThreeSectionSeven = (props: Props) => {
   return (
     <>
       <div className="mx-auto max-w-2xl">
+      <div className="pb-8">
+        <ProgressBar progress={90}></ProgressBar>
+      </div>
         <div className="mt-10 flex flex-col items-center justify-center">
           <h1 className="text-xl font-bold tracking-wide">
             PART 3: ORGANISATIONAL RESULTS
