@@ -13,6 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
+  FileEdit,
   KanbanSquare,
   Link,
   PlusCircle,
@@ -43,18 +44,19 @@ const AddActivitiesButton = (props: Props) => {
   const [openLinksModal, setOpenLinksModal] = useState(false);
   const [open, setOpen] = React.useState(false);
   const FormSchema = z.object({
+    name: z.string().min(1, "Please enter a valid name"),
     link: z.string().url("Please enter a valid URL"),
   });
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
+      name: "",
       link: "",
     },
   });
 
   const handleSaveLink = (data: z.infer<typeof FormSchema>) => {
-    console.log(data);
     form.reset();
     setOpenLinksModal(false);
   };
@@ -63,7 +65,8 @@ const AddActivitiesButton = (props: Props) => {
     <>
           <Modal open={open} setOpen={setOpen}>
         <div className="relative">
-          <h1>Start a new activity</h1>
+          <h1 className="text-center text-2xl">Start a new activity</h1>
+          <div className="p-10"><p className="font-semibold">Please press the start to start a new a activity</p></div>
           <Button
             className="bottom-0 right-0 "
             onClick={() => {
@@ -86,6 +89,25 @@ const AddActivitiesButton = (props: Props) => {
             onSubmit={form.handleSubmit(handleSaveLink)}
             className="w-full space-y-6"
           >
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="flex">
+                    <FileEdit className={ACTIVITIES_ICON_STYLE} />
+                    Name
+                  </FormLabel>
+                  <FormControl>
+                    <Input placeholder="Presentation" {...field} />
+                  </FormControl>
+                  <FormDescription>
+                    Enter a relevant Name (e.g., Presentation slides).
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
             <FormField
               control={form.control}
               name="link"
@@ -114,7 +136,7 @@ const AddActivitiesButton = (props: Props) => {
 
       <DropdownMenu>
         <DropdownMenuTrigger asChild className="hover:cursor-pointer">
-          <PlusCircle size={16} />
+          <PlusCircle className="h-5 w-5" />
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuLabel>Activities</DropdownMenuLabel>
