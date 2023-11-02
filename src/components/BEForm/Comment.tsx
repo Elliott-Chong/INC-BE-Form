@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "../Modal";
-import { UserCircle2, MessageSquare } from "lucide-react";
+import { UserCircle2, MessageSquare, XCircle} from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -71,7 +71,15 @@ const Comment = () => {
 
       <Modal open={showCommentModal} setOpen={closeCommentModal}>
         <div className="p-4 h- overflow-auto">
-          <h2 className="mb-4 text-xl font-bold">Comment Section</h2>
+        <div className="flex justify-between mb-2">
+        <h2 className="mb-4 text-xl font-bold">Comment Section</h2>
+            <button
+              onClick={closeCommentModal}
+            >
+              <XCircle></XCircle>
+            </button>
+          </div>
+          
           <div className="mb-4 max-h-64 overflow-auto">
             {activeTab === "addComment" ? (
               <>
@@ -90,6 +98,10 @@ const Comment = () => {
                   className="w-full rounded-md border p-2"
                   placeholder="Enter your comment"
                 />
+                <div className="flex justify-end">
+                  <button className="bg-slate-500 text-white p-3 mt-2 rounded-md">Submit</button>
+                </div>
+                
               </>
             ) : (
               <div>
@@ -122,7 +134,7 @@ const Comment = () => {
               }`}
               onClick={() => handleTabChange("addComment")}
             >
-              Add Comment
+              Add A Comment
             </button>
 
             <button
@@ -136,14 +148,7 @@ const Comment = () => {
               Past Comments
             </button>
           </div>
-          <div className="mt-6 flex justify-end">
-            <button
-              className="rounded-md bg-slate-500 px-4 py-2 text-white hover:bg-slate-600"
-              onClick={closeCommentModal}
-            >
-              Close
-            </button>
-          </div>
+
         </div>
       </Modal>
     </TooltipProvider>
