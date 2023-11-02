@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Modal from "../Modal";
-import { UserCircle2, MessageSquare, XCircle} from "lucide-react";
+import { UserCircle2, MessageSquare, XCircle } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { Button } from "../ui/button";
 
 const Comment = () => {
   const [showCommentModal, setShowCommentModal] = useState(false);
@@ -70,16 +71,14 @@ const Comment = () => {
       </div>
 
       <Modal open={showCommentModal} setOpen={closeCommentModal}>
-        <div className="p-4 h- overflow-auto">
-        <div className="flex justify-between mb-2">
-        <h2 className="mb-4 text-xl font-bold">Comment Section</h2>
-            <button
-              onClick={closeCommentModal}
-            >
+        <div className="h- overflow-auto p-4">
+          <div className="mb-2 flex justify-between">
+            <h2 className="mb-4 text-xl font-bold">Comment Section</h2>
+            <button onClick={closeCommentModal}>
               <XCircle></XCircle>
             </button>
           </div>
-          
+
           <div className="mb-4 max-h-64 overflow-auto">
             {activeTab === "addComment" ? (
               <>
@@ -98,10 +97,6 @@ const Comment = () => {
                   className="w-full rounded-md border p-2"
                   placeholder="Enter your comment"
                 />
-                <div className="flex justify-end">
-                  <button className="bg-slate-500 text-white p-3 mt-2 rounded-md">Submit</button>
-                </div>
-                
               </>
             ) : (
               <div>
@@ -125,30 +120,38 @@ const Comment = () => {
             )}
           </div>
 
-          <div className="mt-6 flex justify-between">
-            <button
-              className={`rounded-md px-4 py-2 ${
-                activeTab === "addComment"
-                  ? "bg-slate-500 text-white hover:bg-slate-600"
-                  : "bg-gray-300 text-gray-600 hover:bg-gray-400"
-              }`}
-              onClick={() => handleTabChange("addComment")}
-            >
-              Add A Comment
-            </button>
-
-            <button
-              className={`rounded-md px-4 py-2 ${
-                activeTab === "pastComments"
-                  ? "bg-slate-500 text-white hover:bg-slate-600"
-                  : "bg-gray-300 text-gray-600 hover:bg-gray-400"
-              }`}
-              onClick={() => handleTabChange("pastComments")}
-            >
-              Past Comments
-            </button>
+          <div className="mt-6">
+            {activeTab === "addComment" ? (
+              <div className="flex justify-between">
+                <Button
+                  // className={`rounded-md px-4 py-2 ${
+                  //   activeTab === "pastComments"
+                  //     ? "bg-slate-500 text-white hover:bg-slate-600"
+                  //     : "bg-gray-300 text-gray-600 hover:bg-gray-400"
+                  // }`}
+                  onClick={() => handleTabChange("pastComments")}
+                >
+                  Past Comments
+                </Button>
+                <Button
+                // className="mt-2 rounded-md bg-slate-500 p-3 text-white"
+                >
+                  Submit
+                </Button>
+              </div>
+            ) : (
+              <Button
+                // className={`rounded-md px-4 py-2 ${
+                //   activeTab === "pastComments"
+                //     ? "bg-slate-500 text-white hover:bg-slate-600"
+                //     : "bg-gray-300 text-gray-600 hover:bg-gray-400"
+                // }`}
+                onClick={() => handleTabChange("addComment")}
+              >
+                Add Comment
+              </Button>
+            )}
           </div>
-
         </div>
       </Modal>
     </TooltipProvider>

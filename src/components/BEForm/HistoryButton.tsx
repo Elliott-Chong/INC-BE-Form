@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Modal from "../Modal";
-import { UserCircle2,Clock } from "lucide-react";
+import { UserCircle2, Clock } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { Button } from "../ui/button";
 
 const HistoryButton = () => {
   const [showHistoryModal, setShowHistoryModal] = useState(false);
@@ -44,36 +45,27 @@ const HistoryButton = () => {
       </div>
 
       <Modal open={showHistoryModal} setOpen={closeHistoryModal}>
-  <div className="p-4">
-    <h2 className="text-xl font-bold p-2">History</h2>
+        <div className="p-4">
+          <h2 className="p-2 text-xl font-bold">History</h2>
 
-    <div className="mb-4 shadow-md m-2 p-2">
-      <div className="flex items-center space-x-4">
-        <div>
-          {historyRecord.user.photo}
+          <div className="m-2 mb-4 p-2 shadow-md">
+            <div className="flex items-center space-x-4">
+              <div>{historyRecord.user.photo}</div>
+              <div>
+                <span className="text-lg font-semibold">
+                  {historyRecord.user.username}
+                </span>
+              </div>
+            </div>
+            <p className="text-gray-600">{historyRecord.date}</p>
+            <p>{historyRecord.text}</p>
+          </div>
+
+          <div className="mt-6 flex justify-end">
+            <Button onClick={closeHistoryModal}>Close</Button>
+          </div>
         </div>
-        <div>
-          <span className="text-lg font-semibold">
-            {historyRecord.user.username}
-          </span>
-          
-        </div>
-      </div>
-      <p className="text-gray-600">{historyRecord.date}</p>
-      <p>{historyRecord.text}</p>
-    </div>
-
-    <div className="mt-6 flex justify-end">
-      <button
-        className="rounded-md bg-slate-500 px-4 py-2 text-white hover:bg-slate-600"
-        onClick={closeHistoryModal}
-      >
-        Close
-      </button>
-    </div>
-  </div>
-</Modal>
-
+      </Modal>
     </TooltipProvider>
   );
 };
